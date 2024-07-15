@@ -6,6 +6,7 @@ import { type Metadata } from "next";
 import { TRPCReactProvider } from "~/trpc/react";
 import Navbar from "../components/Layout/Navbar";
 import { Playfair_Display } from "next/font/google";
+import AuthComponent from "~/components/Layout/AuthComponent";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -25,7 +26,7 @@ export default function RootLayout({
     <html lang="en" className={`${GeistSans.variable} ${playfair.className}`}>
       <body>
         <TRPCReactProvider>
-          <Navbar />
+          <Navbar authComponent={<AuthComponent />} />
           {children}
         </TRPCReactProvider>
       </body>

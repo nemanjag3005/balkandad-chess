@@ -10,9 +10,8 @@
         --card-foreground: 20 14.3% 4.1%;
         --popover: 0 0% 100%;
         --popover-foreground: 20 14.3% 4.1%;
-        --primary: 46,
-          70%,
-          52%;
+        --primary: 46, 70%, 52%;
+        --primary-dark: 46, 70%, 46%;
         --primary-foreground: 26 83.3% 14.1%;
         --secondary: 60 4.8% 95.9%;
         --secondary-foreground: 24 9.8% 10%;
@@ -38,6 +37,7 @@
         --primary: 46,
           70%,
           52%;
+          --primary-dark: 46, 70%, 42%;
         --primary-foreground: 26 83.3% 14.1%;
         --secondary: 12 6.5% 15.1%;
         --secondary-foreground: 60 9.1% 97.8%;
@@ -61,3 +61,28 @@
       @apply bg-background text-foreground;
     }
   }
+
+    .nav {
+      position: relative;
+      border: none;
+    }
+  
+    .nav:hover {
+      border: none;
+    }
+  
+    .nav::after {
+      content: '';
+      position: absolute;
+      width: 0px;
+      height: 2px;
+      left: 50%;
+      bottom: 0;
+      background-color: #D6A756;
+      transition: all ease-in-out .2s;
+    }
+  
+    .nav:hover::after {
+      width: 100%;
+      left: 0;
+    }
