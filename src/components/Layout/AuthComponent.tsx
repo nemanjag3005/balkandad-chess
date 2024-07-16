@@ -12,10 +12,12 @@ const AuthComponent = async () => {
   ) : (
     <>
       <Link href="/login">
-        <Button className="md:hidden" size="sm">
+        <Button className="uppercase md:hidden" size="sm">
           Sign in
         </Button>
-        <Button className="hidden md:block">Sign in</Button>
+        <Button className="hidden text-xs font-bold uppercase md:block">
+          Sign in
+        </Button>
       </Link>
       <Sidebar />
     </>
