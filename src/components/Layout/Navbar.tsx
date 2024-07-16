@@ -15,10 +15,12 @@ const Navbar: React.FC<{
   return (
     <nav className="flex w-full items-center justify-center">
       <div className="grid w-full max-w-6xl grid-cols-8">
-        <div className="flex items-center justify-center bg-black p-2">
-          <Link href="/">
-            <LogoPlain className="h-8 w-8" />
-          </Link>
+        <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center bg-black p-2">
+            <Link href="/">
+              <LogoPlain className="h-8 w-8" />
+            </Link>
+          </div>
         </div>
         <div className="col-span-7 flex items-center justify-end space-x-2 py-4 font-bold">
           <ul className="mr-4 hidden items-center justify-between space-x-6 font-sans text-xs uppercase md:flex">

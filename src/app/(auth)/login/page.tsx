@@ -20,6 +20,7 @@ import React, { useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { signIn, signUp } from "../actions";
+import LogoPlain from "~/components/ui/Logos/LogoPlain";
 
 const registerSchema = z.object({
   email: z.string().email(),
@@ -47,96 +48,73 @@ export default function Login() {
   };
 
   return (
-    <div className="flex">
-      <div className="hidden h-screen grow bg-secondary/15 lg:block" />
-      <div className="h-screen w-full bg-background lg:w-1/2">
-        <div className="flex h-full items-center justify-center">
-          <div className="w-full max-w-md p-8">
-            <h1 className="mb-4 text-2xl font-semibold">Sign in</h1>
-            <Form {...form}>
-              <form
-                onSubmit={form.handleSubmit(onSubmit)}
-                className="flex w-full flex-1 flex-col justify-center gap-2 text-muted-foreground animate-in"
-              >
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-muted-foreground">
-                        Email Address
-                      </FormLabel>
-                      <FormControl>
-                        <Input
-                          placeholder="Your email address"
-                          {...field}
-                          autoComplete="on"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="password"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-muted-foreground">
-                        Password
-                      </FormLabel>
-                      <FormControl>
-                        <Input
-                          placeholder="Your password"
-                          type="password"
-                          autoComplete="on"
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <Button variant="default" className="my-3 w-full" type="submit">
-                  Sign in
-                </Button>
-                {error && (
-                  <div className="mb-3 mt-1 rounded-md border border-destructive bg-destructive/10 p-3">
-                    <p className="text-center text-sm font-medium text-destructive">
-                      {error}
-                    </p>
-                  </div>
+    <div className="flex h-screen flex-col justify-between bg-background">
+      <div className="flex flex-grow items-center justify-center">
+        <div className="w-full max-w-md p-8">
+          <div className="mx-auto mb-8 flex w-fit items-center justify-center bg-black p-2">
+            <Link href="/">
+              <LogoPlain className="h-8 w-8" />
+            </Link>
+          </div>
+          <Form {...form}>
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="flex w-full flex-col gap-2 animate-in"
+            >
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-sans font-medium">
+                      Email Address
+                    </FormLabel>
+                    <FormControl>
+                      <Input {...field} autoComplete="on" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
                 )}
-              </form>
-            </Form>
-            <div className="flex items-center gap-2 py-4">
-              <hr className="w-full" />
-              <p className="text-xs text-muted-foreground">OR</p>
-              <hr className="w-full" />
-            </div>
-            <Button
-              variant="outline"
-              className="mb-2 w-full font-normal text-muted-foreground"
-            >
-              <div className="flex items-center gap-2">
-                <FaGithub className="h-5 w-5" />
-                <p>Sign in with GitHub</p>
-              </div>
+              />
+              <FormField
+                control={form.control}
+                name="password"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-sans font-medium">
+                      Password
+                    </FormLabel>
+                    <FormControl>
+                      <Input type="password" autoComplete="on" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <Button variant="default" className="my-3 w-full" type="submit">
+                Sign in to account
+              </Button>
+              {error && (
+                <div className="mb-3 mt-1 rounded-md border border-destructive bg-destructive/10 p-3">
+                  <p className="text-center text-sm font-medium text-destructive">
+                    {error}
+                  </p>
+                </div>
+              )}
+            </form>
+          </Form>
+          <div className="mt-4 flex items-center justify-center">
+            <Button variant="link" className="text-muted-foreground">
+              Forgot password?
             </Button>
-            <Button
-              variant="outline"
-              className="mb-2 w-full font-normal text-muted-foreground"
-            >
-              <div className="flex items-center gap-2">
-                <FcGoogle className="h-5 w-5" />
-                <p>Sign in with Google</p>
-              </div>
-            </Button>
-            <p className="py-4 text-center text-sm text-muted-foreground underline">
-              <Link href="/signup">Don&apos;t have an account? Sign up</Link>
-            </p>
           </div>
         </div>
+      </div>
+      <div className="flex items-center justify-center space-x-4 py-8 font-sans text-sm">
+        <p>Don&apos;t have an account?</p>
+        <Link href="/signup">
+          <Button variant="outline">Get access &rarr;</Button>
+        </Link>
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import React from "react";
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import NorthStar from "../ui/Logos/NorthStar";
 import Star2 from "../ui/Logos/Star2";
+import Image from "next/image";
 
 const homeRoutes: { title: string; href: string }[] = [
   { title: "Home", href: "/" },
@@ -15,19 +16,19 @@ const homeRoutes: { title: string; href: string }[] = [
 const Landing = () => {
   return (
     <div className="flex items-center justify-center">
-      <div className="grid w-full max-w-6xl grid-cols-8 grid-rows-6 border border-black">
-        <div className="row-span-6 flex flex-col items-center border-r border-black py-4">
+      <div className="grid w-full max-w-6xl grid-cols-8 grid-rows-6 border-t border-neutral-300">
+        <div className="row-span-6 flex flex-col items-center border-r border-neutral-300 py-4">
           <h3 className="text-sm font-medium uppercase italic">STD. RANK</h3>
           <div className="relative my-4">
             <NorthStar className="h-20 w-20" />
-            <span className="absolute inset-y-0 right-1/2 rotate-45 place-content-center text-sm italic text-white">
+            <span className="absolute inset-y-0 right-1/2 -rotate-45 place-content-center text-sm italic text-white">
               #
             </span>
           </div>
           <div className="my-44 flex flex-grow items-center justify-center">
             <div className="-rotate-90">
               <h3 className="pb-4 text-center text-6xl font-semibold">
-                Grandmaster
+                Master
               </h3>
             </div>
           </div>
@@ -49,7 +50,7 @@ const Landing = () => {
               BalkanDad Chess
             </h6>
           </div>
-          <ul className="flex w-full items-center justify-around border-y border-black py-4 font-sans text-xs font-bold uppercase">
+          <ul className="flex w-full items-center justify-around border-y border-neutral-300 py-4 font-sans text-xs font-bold uppercase">
             {homeRoutes.map((route) => (
               <Link key={route.href} href={route.href}>
                 <li className="nav w-[100%] py-1">{route.title}</li>
@@ -57,16 +58,62 @@ const Landing = () => {
             ))}
           </ul>
         </div>
-        <div className="col-span-3 row-span-3 bg-black"></div>
-        <div className="h-36" />
-        <div className="h-36 bg-black" />
-        <div className="h-36" />
-        <div className="h-36 bg-black" />
-        <div className="h-36 bg-black" />
-        <div className="h-36" />
-        <div className="h-36 bg-black" />
-        <div className="h-36" />
-        <div className="col-span-3 row-span-3 flex flex-col items-center justify-center border-l border-black px-8 py-4">
+        <div className="col-span-3 row-span-3 bg-neutral-300"></div>
+        <div className="grid h-36 grid-cols-2 grid-rows-2">
+          <div className="relative bg-primary">
+            <Image src="/br.png" alt="Black Rook" fill />
+          </div>
+          <div className="relative">
+            <Image src="/bn.png" alt="Black Knight" fill />
+          </div>
+          <div className="relative">
+            <Image src="/bp.png" alt="Black Pawn" fill />
+          </div>
+          <div className="bg-primary" />
+        </div>
+        <div className="grid h-36 grid-cols-2 grid-rows-2">
+          <div className="bg-primary" />
+          <div className="" />
+          <div className="" />
+          <div className="bg-primary" />
+        </div>
+        <div className="grid h-36 grid-cols-2 grid-rows-2">
+          <div className="bg-primary" />
+          <div className="" />
+          <div className="" />
+          <div className="bg-primary" />
+        </div>
+        <div className="grid h-36 grid-cols-2 grid-rows-2">
+          <div className="bg-primary" />
+          <div className="" />
+          <div className="" />
+          <div className="bg-primary" />
+        </div>
+        <div className="grid h-36 grid-cols-2 grid-rows-2">
+          <div className="bg-primary" />
+          <div className="" />
+          <div className="" />
+          <div className="bg-primary" />
+        </div>
+        <div className="grid h-36 grid-cols-2 grid-rows-2">
+          <div className="bg-primary" />
+          <div className="" />
+          <div className="" />
+          <div className="bg-primary" />
+        </div>
+        <div className="grid h-36 grid-cols-2 grid-rows-2">
+          <div className="bg-primary" />
+          <div className="" />
+          <div className="" />
+          <div className="bg-primary" />
+        </div>
+        <div className="grid h-36 grid-cols-2 grid-rows-2">
+          <div className="bg-primary" />
+          <div className="" />
+          <div className="" />
+          <div className="bg-primary" />
+        </div>
+        <div className="col-span-3 row-span-3 flex flex-col items-center justify-center border-l border-neutral-300 px-8 py-4">
           <h3 className="text-center text-2xl font-semibold leading-10">
             &quot;Without the Element Of Enjoyment, It Is Not Worth Trying To
             Excel At Anything&quot;
@@ -77,7 +124,7 @@ const Landing = () => {
                 <FaFacebook className="h-6 w-6 fill-white" />
               </a>
 
-              <a href="/" className="border-r border-black bg-white p-2">
+              <a href="/" className="bg-white p-2">
                 <FaTwitter className="h-6 w-6 fill-black" />
               </a>
               <a href="/" className="bg-black p-2">
@@ -94,14 +141,54 @@ const Landing = () => {
             </div>
           </div>
         </div>
-        <div className="" />
-        <div className="bg-black" />
-        <div className="" />
-        <div className="bg-black" />
-        <div className="bg-black" />
-        <div className="" />
-        <div className="bg-black" />
-        <div className="" />
+        <div className="grid h-36 grid-cols-2 grid-rows-2">
+          <div className="bg-primary" />
+          <div className="" />
+          <div className="" />
+          <div className="bg-primary" />
+        </div>
+        <div className="grid h-36 grid-cols-2 grid-rows-2">
+          <div className="bg-primary" />
+          <div className="" />
+          <div className="" />
+          <div className="bg-primary" />
+        </div>
+        <div className="grid h-36 grid-cols-2 grid-rows-2">
+          <div className="bg-primary" />
+          <div className="" />
+          <div className="" />
+          <div className="bg-primary" />
+        </div>
+        <div className="grid h-36 grid-cols-2 grid-rows-2">
+          <div className="bg-primary" />
+          <div className="" />
+          <div className="" />
+          <div className="bg-primary" />
+        </div>
+        <div className="grid h-36 grid-cols-2 grid-rows-2">
+          <div className="bg-primary" />
+          <div className="" />
+          <div className="" />
+          <div className="bg-primary" />
+        </div>
+        <div className="grid h-36 grid-cols-2 grid-rows-2">
+          <div className="bg-primary" />
+          <div className="" />
+          <div className="" />
+          <div className="bg-primary" />
+        </div>
+        <div className="grid h-36 grid-cols-2 grid-rows-2">
+          <div className="bg-primary" />
+          <div className="" />
+          <div className="" />
+          <div className="bg-primary" />
+        </div>
+        <div className="grid h-36 grid-cols-2 grid-rows-2">
+          <div className="bg-primary" />
+          <div className="" />
+          <div className="" />
+          <div className="bg-primary" />
+        </div>
       </div>
     </div>
   );
