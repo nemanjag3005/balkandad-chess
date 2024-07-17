@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
-import { Button } from "~/components/ui/button";
+import React from "react";
 import LogoPlain from "../ui/Logos/LogoPlain";
 
 export const routes: { title: string; href: string }[] = [
