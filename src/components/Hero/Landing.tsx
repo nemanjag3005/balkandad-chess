@@ -14,9 +14,9 @@ import { Button } from "../ui/button";
 
 const homeRoutes: { title: string; href: string }[] = [
   { title: "Home", href: "/" },
-  { title: "Coach", href: "/coach" },
+  { title: "Course", href: "/course" },
   { title: "Bio", href: "/bio" },
-  { title: "Train", href: "/train" },
+  { title: "Coach", href: "/coach" },
   { title: "Blog", href: "/blog" },
 ];
 
