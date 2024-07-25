@@ -3,9 +3,9 @@ import React from "react";
 const Bio = () => {
   return (
     <div className="flex items-center justify-center">
-      <div className="grid w-full max-w-6xl grid-cols-8 grid-rows-6 border-t border-neutral-300">
-        <div className="bg-chessboard relative col-span-5 row-span-6 grid grid-cols-2 border-b border-neutral-300 bg-opacity-50 bg-cover p-8">
-          <div className="bg-gradient-radial absolute inset-0 from-[#1B1B1BCC] to-[#333333] opacity-75"></div>
+      <div className="mt-16 grid w-full max-w-6xl grid-cols-8 grid-rows-6">
+        <div className="relative col-span-5 row-span-6 grid grid-cols-2 border-b border-neutral-300 bg-opacity-50 bg-chessboard bg-cover p-8">
+          <div className="absolute inset-0 bg-gradient-radial from-[#1B1B1BCC] to-[#333333] opacity-75"></div>
           <div className="flex flex-col justify-center">
             <h2 className="z-30 font-sans text-2xl font-medium text-white">
               Full of passion and dedication. Welcome to a chess school that is

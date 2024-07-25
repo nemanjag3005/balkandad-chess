@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Coach = () => {
   return (
-    <div className="flex items-center justify-center">
+    <div className="mt-10 flex items-center justify-center bg-neutral-50">
       <div className="flex w-full max-w-6xl flex-col items-center py-8">
         <h4 className="font-sans text-sm font-bold uppercase text-primary">
           i also coach
@@ -31,13 +31,13 @@ const Coach = () => {
               tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
             </p>
           </div>
-          <div className="row-span-2">
+          <div className="group row-span-2">
             <div className="relative h-72 w-full backdrop-grayscale">
               <Image
                 fill
                 src="/coach1.jpg"
                 alt="coach1"
-                className="object-cover backdrop-grayscale"
+                className="object-cover grayscale transition-all duration-1000 group-hover:grayscale-0"
               />
             </div>
             <div className="flex flex-col justify-center bg-white p-8">
@@ -47,18 +47,18 @@ const Coach = () => {
               <p className="mt-4 font-sans text-muted-foreground">
                 Lorem ipsum dolor sit amet consectetur adipiscing elit dolor
               </p>
-              <button className="mt-4 w-fit bg-[#1b1b1b] px-6 py-3 font-sans text-xs font-semibold uppercase text-white">
+              <button className="mt-4 w-fit bg-[#1b1b1b] px-6 py-3 font-sans text-xs font-semibold uppercase text-white hover:bg-black/70">
                 learn more
               </button>
             </div>
           </div>
-          <div className="row-span-2">
+          <div className="group row-span-2">
             <div className="relative h-72 w-full">
               <Image
                 fill
                 src="/coach2.jpg"
                 alt="coach2"
-                className="object-cover"
+                className="object-cover grayscale transition-all duration-1000 group-hover:grayscale-0"
               />
             </div>
             <div className="flex flex-col justify-center bg-white p-8">
@@ -66,7 +66,7 @@ const Coach = () => {
               <p className="mt-4 font-sans text-muted-foreground">
                 Lorem ipsum dolor sit amet consectetur adipiscing elit dolor
               </p>
-              <button className="mt-4 w-fit bg-[#1b1b1b] px-6 py-3 font-sans text-xs font-semibold uppercase text-white">
+              <button className="mt-4 w-fit bg-[#1b1b1b] px-6 py-3 font-sans text-xs font-semibold uppercase text-white hover:bg-black/70">
                 learn more
               </button>
             </div>
@@ -90,13 +90,13 @@ const Coach = () => {
               tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
             </p>
           </div>
-          <div className="row-span-2">
+          <div className="group row-span-2">
             <div className="relative h-72 w-full">
               <Image
                 fill
                 src="/coach3.jpg"
                 alt="coach3"
-                className="object-cover"
+                className="object-cover grayscale transition-all duration-1000 group-hover:grayscale-0"
               />
             </div>
             <div className="flex flex-col justify-center bg-white p-8">
@@ -104,18 +104,18 @@ const Coach = () => {
               <p className="mt-4 font-sans text-muted-foreground">
                 Lorem ipsum dolor sit amet consectetur adipiscing elit dolor
               </p>
-              <button className="mt-4 w-fit bg-[#1b1b1b] px-6 py-3 font-sans text-xs font-semibold uppercase text-white">
+              <button className="mt-4 w-fit bg-[#1b1b1b] px-6 py-3 font-sans text-xs font-semibold uppercase text-white hover:bg-black/70">
                 learn more
               </button>
             </div>
           </div>
-          <div className="row-span-2">
+          <div className="group row-span-2">
             <div className="relative h-72 w-full">
               <Image
                 fill
                 src="/coach4.jpg"
                 alt="coach4"
-                className="object-cover"
+                className="object-cover grayscale transition-all duration-1000 group-hover:grayscale-0"
               />
             </div>
             <div className="flex flex-col justify-center bg-white p-8">
@@ -123,18 +123,18 @@ const Coach = () => {
               <p className="mt-4 font-sans text-muted-foreground">
                 Lorem ipsum dolor sit amet consectetur adipiscing elit dolor
               </p>
-              <button className="mt-4 w-fit bg-[#1b1b1b] px-6 py-3 font-sans text-xs font-semibold uppercase text-white">
+              <button className="mt-4 w-fit bg-[#1b1b1b] px-6 py-3 font-sans text-xs font-semibold uppercase text-white hover:bg-black/70">
                 learn more
               </button>
             </div>
           </div>
-          <div className="row-span-2">
+          <div className="group row-span-2">
             <div className="relative h-72 w-full">
               <Image
                 fill
                 src="/coach5.jpg"
                 alt="coach5"
-                className="object-cover"
+                className="object-cover grayscale transition-all duration-1000 group-hover:grayscale-0"
               />
             </div>
             <div className="flex flex-col justify-center bg-white p-8">
@@ -142,7 +142,7 @@ const Coach = () => {
               <p className="mt-4 font-sans text-muted-foreground">
                 Lorem ipsum dolor sit amet consectetur adipiscing elit dolor
               </p>
-              <button className="mt-4 w-fit bg-[#1b1b1b] px-6 py-3 font-sans text-xs font-semibold uppercase text-white">
+              <button className="mt-4 w-fit bg-[#1b1b1b] px-6 py-3 font-sans text-xs font-semibold uppercase text-white hover:bg-black/70">
                 learn more
               </button>
             </div>
