@@ -21,6 +21,8 @@ const config = {
       backgroundImage: {
         chessboard: "url('/chessboard.jpg')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "chess-clock": "url('/chess-player-hitting-the-chess-clock.jpg')",
+        "chess-pieces": "url('/chess-pieces-on-a-dark-background.jpeg')",
       },
       colors: {
         border: "hsl(var(--border))",

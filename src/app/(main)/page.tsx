@@ -1,4 +1,5 @@
 import Bio from "~/components/Hero/Bio";
+import Blog from "~/components/Hero/Blog";
 import Coach from "~/components/Hero/Coach";
 import Course from "~/components/Hero/Course";
 import Landing from "~/components/Hero/Landing";
@@ -12,6 +13,7 @@ export default async function Home() {
         <Course />
         <Bio />
         <Coach />
+        <Blog />
       </main>
     </HydrateClient>
   );

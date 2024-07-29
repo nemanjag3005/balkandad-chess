@@ -4,9 +4,9 @@ import { PlayIcon } from "@heroicons/react/24/solid";
 
 const Course = () => {
   return (
-    <div className="flex items-center justify-center">
-      <div className="grid w-full max-w-6xl grid-cols-8 grid-rows-6 border-t border-neutral-300">
-        <div className="col-span-5 row-span-5 border-b border-neutral-300 p-8">
+    <div className="flex items-center justify-center bg-neutral-50 py-10">
+      <div className="grid w-full max-w-6xl grid-cols-8 grid-rows-6 bg-white shadow-lg">
+        <div className="col-span-5 row-span-5 border-b p-8">
           <h1 className="text-6xl font-medium">
             My Ultimate Chess Masterclass
           </h1>
@@ -32,7 +32,7 @@ const Course = () => {
             </div>
           </div>
         </div>
-        <div className="col-span-3 row-span-6 flex items-center justify-center border-l border-neutral-300">
+        <div className="col-span-3 row-span-6 flex items-center justify-center border-l">
           <div className="flex flex-col items-center justify-center">
             <h6 className="-rotate-12 text-xl font-semibold">
               As seen on YouTube!
@@ -59,7 +59,7 @@ const Course = () => {
             </svg>
           </div>
         </div>
-        <div className="col-span-2 flex items-center justify-center border-r border-neutral-300">
+        <div className="col-span-2 flex items-center justify-center border-r">
           <h3 className="font-sans text-5xl font-semibold">$149</h3>
           <div className="ml-2 flex flex-col">
             <p className="font-sans text-sm font-medium">one-time payment</p>
@@ -68,7 +68,7 @@ const Course = () => {
             </p>
           </div>
         </div>
-        <div className="flex flex-col justify-center border-r border-neutral-300 px-4">
+        <div className="flex flex-col justify-center border-r px-4">
           <h3 className="font-sans text-3xl font-semibold">120</h3>
           <p className="font-sans text-sm font-medium">teaching hours</p>
         </div>

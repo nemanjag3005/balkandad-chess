@@ -15,7 +15,7 @@ const Bio = () => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
               tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
             </p>
-            <h2 className="z-30 mt-6 font-sans font-bold text-white">
+            <h2 className="z-30 mt-6 font-sans font-bold text-primary">
               BalkanDad Chess
             </h2>
           </div>

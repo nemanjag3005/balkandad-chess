@@ -250,8 +250,8 @@ const Landing = () => {
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="flex items-center justify-center">
-        <div className="grid w-full max-w-6xl grid-cols-8 grid-rows-6 border-t border-neutral-300">
-          <div className="row-span-6 flex flex-col items-center border-r border-neutral-300 py-4">
+        <div className="grid w-full max-w-6xl grid-cols-8 grid-rows-6 border-t">
+          {/* <div className="row-span-6 flex flex-col items-center border-r border-neutral-300 py-4">
             <h3 className="text-sm font-medium uppercase italic">STD. RANK</h3>
             <div className="relative my-4">
               <NorthStar className="h-20 w-20" />
@@ -276,7 +276,7 @@ const Landing = () => {
             <h3 className="text-sm font-medium uppercase italic">
               STD. RATING
             </h3>
-          </div>
+          </div> */}
           <div className="col-span-4 row-span-2 grid grid-cols-1 grid-rows-3">
             <div className="row-span-2 flex flex-col items-center justify-center px-4">
               <h1 className="text-center text-5xl font-semibold">
@@ -286,7 +286,7 @@ const Landing = () => {
                 BalkanDad Chess
               </h6>
             </div>
-            <ul className="flex w-full items-center justify-around border-y border-neutral-300 py-4 font-sans text-xs font-bold uppercase">
+            <ul className="flex w-full items-center justify-around border-t py-4 font-sans text-xs font-bold uppercase">
               {homeRoutes.map((route) => (
                 <Link key={route.href} href={route.href}>
                   <li className="nav w-[100%] py-1">{route.title}</li>
@@ -294,9 +294,9 @@ const Landing = () => {
               ))}
             </ul>
           </div>
-          <div className="col-span-3 row-span-6 grid grid-rows-2">
+          <div className="col-span-4 row-span-6 grid grid-rows-2">
             <div className="bg-neutral-300"></div>
-            <div className="flex flex-col items-center justify-center border-l border-neutral-300 px-8 py-4">
+            <div className="flex flex-col items-center justify-center px-8 py-4">
               <h3 className="text-center text-2xl font-semibold leading-10">
                 &quot;Without the Element Of Enjoyment, It Is Not Worth Trying
                 To Excel At Anything&quot;
@@ -327,7 +327,7 @@ const Landing = () => {
               </div>
             </div>
           </div>
-          <div className="col-span-4 row-span-4 grid h-[36rem] grid-cols-8 grid-rows-8">
+          <div className="col-span-4 row-span-4 grid h-[36rem] grid-cols-8 grid-rows-8 border">
             {renderChessboard()}
           </div>
         </div>
