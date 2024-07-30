@@ -32,7 +32,9 @@ const Footer = () => {
 
   const [error, setError] = useState<string | null>(null);
 
-  const onSubmit = async (data: NewsletterInput) => {};
+  const onSubmit = async (data: NewsletterInput) => {
+    console.log(data);
+  };
   return (
     <div className="">
       <div className="flex items-center justify-center bg-neutral-100">
