@@ -122,7 +122,7 @@ const Footer = () => {
                   />
                   <Button
                     type="submit"
-                    className="mt-4 w-full bg-black text-xs uppercase text-white"
+                    className="mt-4 w-full bg-black text-xs uppercase text-white hover:bg-black/80"
                   >
                     Sign up
                   </Button>
