@@ -1,6 +1,26 @@
+"use client";
 import React from "react";
+import { useActiveSection } from "~/utils/context/ActiveSectionContext";
 
 const SectionsNav = () => {
+  const { activeSection } = useActiveSection();
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const getNavItemClass = (sectionId: string) => {
+    return `flex w-full flex-col items-center justify-center border-b-2 ${
+      activeSection === sectionId
+        ? "border-yellow-500 bg-yellow-50/40"
+        : "border-transparent"
+    } before:mb-2 before:font-mono before:text-sm before:text-neutral-500 before:content-[counter(section,decimal-leading-zero)] hover:bg-yellow-50/40 hover:before:text-neutral-900`;
+  };
+
+  console.log("Active section:", activeSection);
   return (
     <div className="sticky top-0 z-50 font-sans">
       <div className="sm:hidden" data-headlessui-state="">
@@ -47,8 +67,9 @@ const SectionsNav = () => {
         >
           <li className="flex [counter-increment:section]">
             <a
-              href="#table-of-contents"
-              className="flex w-full flex-col items-center justify-center border-b-2 border-transparent before:mb-2 before:font-mono before:text-sm before:text-neutral-500 before:content-[counter(section,decimal-leading-zero)] hover:bg-yellow-50/40 hover:before:text-neutral-900"
+              href="#contents"
+              className={getNavItemClass("contents")}
+              onClick={() => scrollToSection("contents")}
             >
               <span className="hidden lg:inline">Table of contents</span>
               <span className="lg:hidden">Contents</span>
@@ -56,8 +77,9 @@ const SectionsNav = () => {
           </li>
           <li className="flex [counter-increment:section]">
             <a
-              href="#screencasts"
-              className="flex w-full flex-col items-center justify-center border-b-2 border-transparent before:mb-2 before:font-mono before:text-sm before:text-neutral-500 before:content-[counter(section,decimal-leading-zero)] hover:bg-yellow-50/40 hover:before:text-neutral-900"
+              href="#lectures"
+              className={getNavItemClass("lectures")}
+              onClick={() => scrollToSection("lectures")}
             >
               Video Lectures
             </a>
@@ -65,18 +87,19 @@ const SectionsNav = () => {
           <li className="flex [counter-increment:section]">
             <a
               href="#resources"
-              className="flex w-full flex-col items-center justify-center border-b-2 border-transparent before:mb-2 before:font-mono before:text-sm before:text-neutral-500 before:content-[counter(section,decimal-leading-zero)] hover:bg-yellow-50/40 hover:before:text-neutral-900"
+              className={getNavItemClass("resources")}
+              onClick={() => scrollToSection("resources")}
             >
               Resources
             </a>
           </li>
-
           <li className="flex [counter-increment:section]">
             <a
-              href="#author"
-              className="flex w-full flex-col items-center justify-center border-b-2 border-transparent before:mb-2 before:font-mono before:text-sm before:text-neutral-500 before:content-[counter(section,decimal-leading-zero)] hover:bg-yellow-50/40 hover:before:text-neutral-900"
+              href="#coach"
+              className={getNavItemClass("coach")}
+              onClick={() => scrollToSection("coach")}
             >
-              Author
+              Coach
             </a>
           </li>
         </ol>

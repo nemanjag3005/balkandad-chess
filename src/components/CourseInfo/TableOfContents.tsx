@@ -2,16 +2,9 @@ import React from "react";
 
 const TableOfContents = () => {
   return (
-    <section
-      id="table-of-contents"
-      aria-labelledby="table-of-contents-title"
-      className="scroll-mt-14 py-16 font-sans sm:scroll-mt-32 sm:py-20 lg:py-32"
-    >
+    <section className="scroll-mt-14 py-16 font-sans sm:scroll-mt-32 sm:py-20 lg:py-32">
       <div className="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:max-w-4xl lg:px-12">
-        <h2
-          className="inline-flex items-center rounded-full px-4 py-1 text-primary ring-1 ring-inset ring-primary"
-          id="table-of-contents-title"
-        >
+        <h2 className="inline-flex items-center rounded-full px-4 py-1 text-primary ring-1 ring-inset ring-primary">
           <span className="font-mono text-sm" aria-hidden="true">
             01
           </span>
