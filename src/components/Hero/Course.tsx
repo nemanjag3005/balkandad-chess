@@ -1,13 +1,14 @@
 import React from "react";
 import { Button } from "../ui/button";
 import { PlayIcon } from "@heroicons/react/24/solid";
+import Link from "next/link";
 
 const Course = () => {
   return (
     <div className="flex items-center justify-center bg-neutral-50 py-10">
       <div className="grid w-full max-w-6xl grid-cols-8 grid-rows-6 bg-white shadow-lg">
         <div className="col-span-5 row-span-5 border-b p-8">
-          <h1 className="text-6xl font-medium">
+          <h1 className="font-sans text-6xl font-medium">
             My Ultimate Chess Masterclass
           </h1>
           <p className="mt-8 font-sans">
@@ -19,9 +20,11 @@ const Course = () => {
             and have a blast doing it?
           </p>
           <div className="mt-10 flex items-center space-x-4">
-            <Button className="text-xs uppercase" variant="default">
-              Learn now
-            </Button>
+            <Link href="/course">
+              <Button className="text-xs uppercase" variant="default">
+                Learn now
+              </Button>
+            </Link>
             <div className="flex items-center space-x-1.5">
               <button className="rounded-full bg-black p-2.5">
                 <PlayIcon className="h-3 w-3 text-white" />
