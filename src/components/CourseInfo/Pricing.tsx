@@ -3,6 +3,7 @@ import React from "react";
 import { Boxes } from "../ui/background-boxes";
 import { cn } from "~/lib/utils";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 const Pricing = () => {
   return (
@@ -34,9 +35,11 @@ const Pricing = () => {
             </p>
           </div>
         </div>
-        <Button className="mt-6 w-full" variant="default">
-          Enroll now
-        </Button>
+        <Link href="/checkout">
+          <Button className="mt-6 w-full" variant="default">
+            Enroll now
+          </Button>
+        </Link>
         <p className="mt-4 text-center text-sm text-neutral-400">
           Lifetime access. Free updates.
         </p>
