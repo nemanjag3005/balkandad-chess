@@ -7,7 +7,7 @@ import localizedFormat from "dayjs/plugin/localizedFormat";
 const Blog = () => {
   dayjs.extend(localizedFormat);
   return (
-    <div className="bg-chess-clock relative flex flex-col items-center justify-center bg-cover bg-no-repeat py-10">
+    <div className="relative flex flex-col items-center justify-center bg-chess-clock bg-cover bg-no-repeat py-10">
       <div className="absolute inset-0 bg-gradient-radial from-[#FFFFFFCC] to-[#FFFFFF]"></div>
       <div className="z-10 flex w-full max-w-6xl flex-col items-center py-8">
         <h4 className="font-sans text-sm font-bold uppercase text-primary">
@@ -21,13 +21,13 @@ const Blog = () => {
           tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
         </p>
         <div className="mt-10 grid w-full grid-cols-3 gap-6">
-          <div className="cursor-pointer bg-[#1b1b1b] transition-all duration-300 ease-in-out hover:scale-105">
+          <div className="cursor-pointer rounded-xl bg-[#1b1b1b] transition-all duration-300 ease-in-out hover:scale-105">
             <div className="relative h-60 w-full">
               <Image
                 src="/coach1.jpg"
                 alt="Article"
                 fill
-                className="object-cover"
+                className="rounded-t-xl object-cover"
               />
               <div className="absolute left-2 top-2 bg-primary px-2.5 py-1 font-sans text-xs text-neutral-700">
                 Blog
@@ -51,7 +51,7 @@ const Blog = () => {
           </div>
         </div>
       </div>
-      <div className="bg-chess-pieces relative z-10 mt-20 flex w-full max-w-6xl flex-col items-start space-y-8 bg-center py-14 pl-24 pr-80 font-sans">
+      <div className="relative z-10 mt-20 flex w-full max-w-6xl flex-col items-start space-y-8 bg-chess-pieces bg-center py-14 pl-24 pr-80 font-sans">
         <div className="absolute inset-0 bg-gradient-radial from-[#1B1B1BCC] to-[#333333] opacity-75"></div>
         <h2 className="z-10 text-4xl font-bold text-neutral-50">
           Lorem Ipsum Dolor Sit Amet consectetetuer adipiscing elit!

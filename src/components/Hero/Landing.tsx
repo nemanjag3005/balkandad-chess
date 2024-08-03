@@ -3,8 +3,7 @@
 import Link from "next/link";
 import React, { useCallback, useState } from "react";
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
-import NorthStar from "../ui/Logos/NorthStar";
-import Star2 from "../ui/Logos/Star2";
+import ReactPlayer from "react-player/youtube";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { type Position } from "./ChessBoard/types";
@@ -294,10 +293,39 @@ const Landing = () => {
               ))}
             </ul>
           </div>
-          <div className="col-span-4 row-span-6 grid grid-rows-2">
-            <div className="bg-neutral-300"></div>
+
+          <div className="col-span-4 row-span-6">
+            <div className="flex flex-col space-y-6 px-10 py-10">
+              <div className="relative flex w-2/3 bg-black pt-[36.25%] shadow-lg">
+                <ReactPlayer
+                  width="100%"
+                  height="100%"
+                  style={{ position: "absolute", top: "0", left: "0" }}
+                  url="https://www.youtube.com/watch?v=DDyi3IkZuv8"
+                  controls
+                />
+              </div>
+              <div className="relative ml-auto flex w-2/3 bg-black pt-[36.25%] shadow-lg">
+                <ReactPlayer
+                  width="100%"
+                  height="100%"
+                  style={{ position: "absolute", top: "0", left: "0" }}
+                  url="https://www.youtube.com/watch?v=XrfN3x6DUAE"
+                  controls
+                />
+              </div>
+              <div className="relative flex w-2/3 bg-black pt-[36.25%] shadow-lg">
+                <ReactPlayer
+                  width="100%"
+                  height="100%"
+                  style={{ position: "absolute", top: "0", left: "0" }}
+                  url="https://www.youtube.com/watch?v=V_njiDIy3Q4"
+                  controls
+                />
+              </div>
+            </div>
             <div className="flex flex-col items-center justify-center px-8 py-4">
-              <h3 className="text-center text-2xl font-semibold leading-10">
+              <h3 className="text-center text-2xl font-semibold italic leading-10">
                 &quot;Without the Element Of Enjoyment, It Is Not Worth Trying
                 To Excel At Anything&quot;
               </h3>
@@ -308,7 +336,13 @@ const Landing = () => {
                   </a>
 
                   <a href="/" className="bg-white p-2">
-                    <FaTwitter className="h-6 w-6 fill-black" />
+                    <svg
+                      aria-hidden="true"
+                      viewBox="0 0 24 24"
+                      className="h-6 w-6 fill-current text-base font-medium tracking-tight text-neutral-900"
+                    >
+                      <path d="M13.6823 10.6218L20.2391 3H18.6854L12.9921 9.61788L8.44486 3H3.2002L10.0765 13.0074L3.2002 21H4.75404L10.7663 14.0113L15.5685 21H20.8132L13.6819 10.6218H13.6823ZM11.5541 13.0956L10.8574 12.0991L5.31391 4.16971H7.70053L12.1742 10.5689L12.8709 11.5655L18.6861 19.8835H16.2995L11.5541 13.096V13.0956Z"></path>
+                    </svg>
                   </a>
                   <a href="/" className="bg-black p-2">
                     <FaInstagram className="h-6 w-6 fill-white" />
@@ -332,8 +366,19 @@ const Landing = () => {
           </div>
         </div>
         <Dialog open={openPromoDialog} onOpenChange={setOpenPromoDialog}>
-          <DialogContent className="sm:max-w-[425px]">
-            <div className=""></div>
+          <DialogContent className="px-10 pt-10 sm:max-w-[625px]">
+            <div className="">
+              <div className="relative flex bg-black pt-[56.25%] shadow-lg">
+                <ReactPlayer
+                  width="100%"
+                  height="100%"
+                  style={{ position: "absolute", top: "0", left: "0" }}
+                  url="https://www.youtube.com/watch?v=DDyi3IkZuv8"
+                  controls
+                  playing
+                />
+              </div>
+            </div>
             <DialogFooter>
               <Button className="text-xs uppercase" variant="default">
                 Learn now

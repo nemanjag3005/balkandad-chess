@@ -1,7 +1,9 @@
+"use client";
 import React from "react";
 import { Button } from "../ui/button";
 import { PlayIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
+import ReactPlayer from "react-player/youtube";
 
 const Course = () => {
   return (
@@ -35,15 +37,15 @@ const Course = () => {
             </div>
           </div>
         </div>
-        <div className="col-span-3 row-span-6 flex items-center justify-center border-l">
-          <div className="flex flex-col items-center justify-center">
-            <h6 className="-rotate-12 text-xl font-semibold">
+        <div className="relative col-span-3 row-span-6 flex items-center justify-center border-l pl-32 pr-8">
+          <div className="absolute left-6 top-20 flex flex-col items-center justify-center">
+            <h6 className="-rotate-12 text-lg font-semibold">
               As seen on YouTube!
             </h6>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 776.09175 693.66538"
-              className="mt-6 h-16 w-16 rotate-45 fill-primary"
+              className="mt-6 h-12 w-12 rotate-45 fill-primary"
               y="0px"
               x="0px"
               id="Layer_1"
@@ -60,6 +62,15 @@ const Course = () => {
                 />
               </g>
             </svg>
+          </div>
+          <div className="relative mt-12 flex w-full rotate-12 bg-black pt-[56.25%] shadow-lg">
+            <ReactPlayer
+              width="100%"
+              height="100%"
+              style={{ position: "absolute", top: "0", left: "0" }}
+              url="https://www.youtube.com/watch?v=MltFyOGPCaA"
+              controls
+            />
           </div>
         </div>
         <div className="col-span-2 flex items-center justify-center border-r">

@@ -112,7 +112,7 @@ export default function Login() {
       </div>
       <div className="flex items-center justify-center space-x-4 py-8 font-sans text-sm">
         <p>Don&apos;t have an account?</p>
-        <Link href="/signup">
+        <Link href="/course">
           <Button variant="outline">Get access &rarr;</Button>
         </Link>
       </div>
