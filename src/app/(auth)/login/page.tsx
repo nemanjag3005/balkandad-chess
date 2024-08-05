@@ -19,7 +19,7 @@ import React, { useState } from "react";
 
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { signIn, signUp } from "../actions";
+import { signIn } from "../actions";
 import LogoPlain from "~/components/ui/Logos/LogoPlain";
 
 const registerSchema = z.object({
