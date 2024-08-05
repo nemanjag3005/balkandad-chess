@@ -4,7 +4,7 @@ const Bio = () => {
   return (
     <div className="flex items-center justify-center">
       <div className="mt-16 grid w-full max-w-6xl grid-cols-8 grid-rows-6">
-        <div className="relative col-span-5 row-span-6 grid grid-cols-2 border-b border-neutral-300 bg-opacity-50 bg-chessboard bg-cover p-8">
+        <div className="relative col-span-8 row-span-6 grid grid-cols-2 border-b border-neutral-300 bg-opacity-50 bg-chessboard bg-cover p-8 md:col-span-5">
           <div className="absolute inset-0 bg-gradient-radial from-[#1B1B1BCC] to-[#333333] opacity-75"></div>
           <div className="flex flex-col justify-center">
             <h2 className="z-30 font-sans text-2xl font-medium text-white">
@@ -20,7 +20,7 @@ const Bio = () => {
             </h2>
           </div>
         </div>
-        <div className="col-span-3 row-span-6 p-8">
+        <div className="col-span-8 row-span-6 p-8 md:col-span-3">
           <h4 className="font-sans text-sm font-bold uppercase text-primary">
             meet balkandad
           </h4>

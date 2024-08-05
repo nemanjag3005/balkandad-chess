@@ -11,7 +11,7 @@ const Sidebar = () => {
   const [opened, setOpened] = React.useState(0);
 
   return (
-    <div className="block md:hidden">
+    <div className="block font-sans md:hidden">
       <Button variant="ghost" className="p-1.5" onClick={() => setOpened(1)}>
         <Bars3BottomRightIcon className="h-6 w-6" />{" "}
       </Button>

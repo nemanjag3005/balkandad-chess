@@ -250,33 +250,7 @@ const Landing = () => {
     <DndProvider backend={HTML5Backend}>
       <div className="flex items-center justify-center">
         <div className="grid w-full max-w-6xl grid-cols-8 grid-rows-6 border-t">
-          {/* <div className="row-span-6 flex flex-col items-center border-r border-neutral-300 py-4">
-            <h3 className="text-sm font-medium uppercase italic">STD. RANK</h3>
-            <div className="relative my-4">
-              <NorthStar className="h-20 w-20" />
-              <span className="absolute inset-y-0 right-1/2 -rotate-45 place-content-center text-sm italic text-white">
-                #
-              </span>
-            </div>
-            <div className="my-44 flex flex-grow items-center justify-center">
-              <div className="-rotate-90">
-                <h3 className="pb-4 text-center text-6xl font-semibold">
-                  Master
-                </h3>
-              </div>
-            </div>
-
-            <div className="relative my-4">
-              <Star2 className="h-20 w-20" />
-              <span className="absolute inset-y-0 right-1/3 -rotate-45 place-content-center text-sm italic text-white">
-                2658
-              </span>
-            </div>
-            <h3 className="text-sm font-medium uppercase italic">
-              STD. RATING
-            </h3>
-          </div> */}
-          <div className="col-span-4 row-span-2 grid grid-cols-1 grid-rows-3">
+          <div className="col-span-8 row-span-2 grid grid-cols-1 grid-rows-3 md:col-span-4">
             <div className="row-span-2 flex flex-col items-center justify-center px-4">
               <h1 className="text-center text-5xl font-semibold">
                 Lazar Vilotijević
@@ -294,7 +268,7 @@ const Landing = () => {
             </ul>
           </div>
 
-          <div className="col-span-4 row-span-6">
+          <div className="order-2 col-span-8 row-span-6 md:order-none md:col-span-4">
             <div className="flex flex-col space-y-6 px-10 py-10">
               <div className="relative flex w-2/3 bg-black pt-[36.25%] shadow-lg">
                 <ReactPlayer
@@ -361,7 +335,7 @@ const Landing = () => {
               </div>
             </div>
           </div>
-          <div className="col-span-4 row-span-4 grid h-[36rem] grid-cols-8 grid-rows-8 border">
+          <div className="col-span-8 row-span-4 grid h-[38rem] grid-cols-8 grid-rows-8 border md:col-span-4 md:h-[36rem]">
             {renderChessboard()}
           </div>
         </div>

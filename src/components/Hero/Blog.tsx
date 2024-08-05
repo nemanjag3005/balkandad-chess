@@ -9,7 +9,7 @@ const Blog = () => {
   return (
     <div className="relative flex flex-col items-center justify-center bg-chess-clock bg-cover bg-no-repeat py-10">
       <div className="absolute inset-0 bg-gradient-radial from-[#FFFFFFCC] to-[#FFFFFF]"></div>
-      <div className="z-10 flex w-full max-w-6xl flex-col items-center py-8">
+      <div className="z-10 flex w-full max-w-6xl flex-col items-center px-4 py-8">
         <h4 className="font-sans text-sm font-bold uppercase text-primary">
           my blog
         </h4>
@@ -20,7 +20,7 @@ const Blog = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
           tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
         </p>
-        <div className="mt-10 grid w-full grid-cols-3 gap-6">
+        <div className="mt-10 grid w-full gap-6 md:grid-cols-3">
           <div className="cursor-pointer rounded-xl bg-[#1b1b1b] transition-all duration-300 ease-in-out hover:scale-105">
             <div className="relative h-60 w-full">
               <Image
@@ -51,9 +51,9 @@ const Blog = () => {
           </div>
         </div>
       </div>
-      <div className="relative z-10 mt-20 flex w-full max-w-6xl flex-col items-start space-y-8 bg-chess-pieces bg-center py-14 pl-24 pr-80 font-sans">
+      <div className="relative z-10 mt-20 flex w-full max-w-6xl flex-col items-center space-y-8 bg-chess-pieces bg-center px-8 py-14 text-center font-sans md:items-start md:pl-24 md:pr-80 md:text-left">
         <div className="absolute inset-0 bg-gradient-radial from-[#1B1B1BCC] to-[#333333] opacity-75"></div>
-        <h2 className="z-10 text-4xl font-bold text-neutral-50">
+        <h2 className="z-10 text-2xl font-bold text-neutral-50 md:text-4xl">
           Lorem Ipsum Dolor Sit Amet consectetetuer adipiscing elit!
         </h2>
         <p className="z-10 text-neutral-300">

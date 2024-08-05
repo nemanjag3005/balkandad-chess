@@ -4,15 +4,15 @@ import Image from "next/image";
 const Coach = () => {
   return (
     <div className="mt-10 flex items-center justify-center bg-neutral-50">
-      <div className="flex w-full max-w-6xl flex-col items-center py-8">
+      <div className="flex w-full max-w-6xl flex-col items-center px-4 py-8">
         <h4 className="font-sans text-sm font-bold uppercase text-primary">
           i also coach
         </h4>
-        <h2 className="mt-4 font-sans text-4xl font-semibold">
+        <h2 className="mt-4 text-center font-sans text-4xl font-semibold md:text-left">
           In every game, I see the potential for greatness
         </h2>
-        <div className="mt-10 grid w-full grid-cols-3 grid-rows-4 gap-6">
-          <div className="flex flex-col space-y-4 bg-[#1b1b1b] px-4 py-8">
+        <div className="mt-10 grid w-full grid-cols-3 gap-6 md:grid-rows-4">
+          <div className="col-span-3 flex flex-col space-y-4 bg-[#1b1b1b] px-4 py-8 md:col-span-1">
             <div className="w-fit bg-neutral-100 p-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +31,7 @@ const Coach = () => {
               tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
             </p>
           </div>
-          <div className="group row-span-2">
+          <div className="group col-span-3 md:col-span-1 md:row-span-2">
             <div className="relative h-72 w-full backdrop-grayscale">
               <Image
                 fill
@@ -52,7 +52,7 @@ const Coach = () => {
               </button>
             </div>
           </div>
-          <div className="group row-span-2">
+          <div className="group col-span-3 md:col-span-1 md:row-span-2">
             <div className="relative h-72 w-full">
               <Image
                 fill
@@ -71,7 +71,7 @@ const Coach = () => {
               </button>
             </div>
           </div>
-          <div className="flex flex-col space-y-4 bg-[#1b1b1b] px-4 py-8">
+          <div className="order-first col-span-3 flex flex-col space-y-4 bg-[#1b1b1b] px-4 py-8 md:order-none md:col-span-1">
             <div className="w-fit bg-neutral-100 p-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -90,7 +90,7 @@ const Coach = () => {
               tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
             </p>
           </div>
-          <div className="group row-span-2">
+          <div className="group col-span-3 md:col-span-1 md:row-span-2">
             <div className="relative h-72 w-full">
               <Image
                 fill
@@ -109,7 +109,7 @@ const Coach = () => {
               </button>
             </div>
           </div>
-          <div className="group row-span-2">
+          <div className="group col-span-3 md:col-span-1 md:row-span-2">
             <div className="relative h-72 w-full">
               <Image
                 fill
@@ -128,7 +128,7 @@ const Coach = () => {
               </button>
             </div>
           </div>
-          <div className="group row-span-2">
+          <div className="group col-span-3 md:col-span-1 md:row-span-2">
             <div className="relative h-72 w-full">
               <Image
                 fill

@@ -9,7 +9,7 @@ const Course = () => {
   return (
     <div className="flex items-center justify-center bg-neutral-50 py-10">
       <div className="grid w-full max-w-6xl grid-cols-8 grid-rows-6 bg-white shadow-lg">
-        <div className="col-span-5 row-span-5 border-b p-8">
+        <div className="col-span-8 row-span-5 border-b p-8 md:col-span-5">
           <h1 className="font-sans text-6xl font-medium">
             My Ultimate Chess Masterclass
           </h1>
@@ -37,15 +37,15 @@ const Course = () => {
             </div>
           </div>
         </div>
-        <div className="relative col-span-3 row-span-6 flex items-center justify-center border-l pl-32 pr-8">
+        <div className="relative order-2 col-span-8 row-span-6 flex items-center justify-center border-l border-t pb-16 pl-32 pr-8 md:order-none md:col-span-3 md:border-t-0 md:pb-0">
           <div className="absolute left-6 top-20 flex flex-col items-center justify-center">
-            <h6 className="-rotate-12 text-lg font-semibold">
+            <h6 className="-rotate-12 text-xl font-semibold md:text-lg">
               As seen on YouTube!
             </h6>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 776.09175 693.66538"
-              className="mt-6 h-12 w-12 rotate-45 fill-primary"
+              className="mt-6 h-20 w-20 rotate-45 fill-primary md:h-12 md:w-12"
               y="0px"
               x="0px"
               id="Layer_1"
@@ -63,7 +63,7 @@ const Course = () => {
               </g>
             </svg>
           </div>
-          <div className="relative mt-12 flex w-full rotate-12 bg-black pt-[56.25%] shadow-lg">
+          <div className="relative mt-36 flex w-3/4 rotate-12 bg-black pt-[46.25%] shadow-lg md:mt-12 md:w-full md:pt-[56.25%]">
             <ReactPlayer
               width="100%"
               height="100%"
@@ -73,8 +73,8 @@ const Course = () => {
             />
           </div>
         </div>
-        <div className="col-span-2 flex items-center justify-center border-r">
-          <h3 className="font-sans text-5xl font-semibold">$149</h3>
+        <div className="col-span-3 flex items-center justify-center border-r pl-4 pr-1 md:col-span-2">
+          <h3 className="font-sans text-4xl font-semibold md:text-5xl">$149</h3>
           <div className="ml-2 flex flex-col">
             <p className="font-sans text-sm font-medium">one-time payment</p>
             <p className="font-sans text-sm text-muted-foreground">
@@ -82,11 +82,11 @@ const Course = () => {
             </p>
           </div>
         </div>
-        <div className="flex flex-col justify-center border-r px-4">
+        <div className="col-span-2 flex flex-col justify-center border-r px-4 md:col-span-1">
           <h3 className="font-sans text-3xl font-semibold">120</h3>
           <p className="font-sans text-sm font-medium">teaching hours</p>
         </div>
-        <div className="col-span-2 flex flex-col justify-center px-6">
+        <div className="col-span-3 flex flex-col justify-center px-6 md:col-span-2">
           <h3 className="font-sans text-3xl font-semibold">100+</h3>
           <p className="font-sans text-sm font-medium">satisfied students</p>
         </div>
