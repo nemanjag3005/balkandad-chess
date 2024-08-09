@@ -20,10 +20,16 @@ import React, { useState } from "react";
 import { signUp } from "../actions";
 import LogoPlain from "~/components/ui/Logos/LogoPlain";
 
-const registerSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(6).max(100),
-});
+const registerSchema = z
+  .object({
+    email: z.string().email(),
+    password: z.string().min(6).max(100),
+    confirmPassword: z.string().min(6).max(100),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords don't match",
+    path: ["confirmPassword"],
+  });
 
 export type SignupInput = z.infer<typeof registerSchema>;
 
@@ -33,6 +39,7 @@ export default function Login() {
     defaultValues: {
       email: "",
       password: "",
+      confirmPassword: "",
     },
   });
 
@@ -92,6 +99,25 @@ export default function Login() {
                   </FormItem>
                 )}
               />
+              <FormField
+                control={form.control}
+                name="confirmPassword"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-sans font-medium">
+                      Confirm Password
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        type="password"
+                        autoComplete="new-password"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
               <Button variant="default" className="my-3 w-full" type="submit">
                 Sign up
               </Button>
@@ -111,11 +137,6 @@ export default function Login() {
               )}
             </form>
           </Form>
-          <div className="mt-4 flex items-center justify-center">
-            <Button variant="link" className="text-muted-foreground">
-              Forgot password?
-            </Button>
-          </div>
         </div>
       </div>
       <div className="flex items-center justify-center space-x-4 py-8 font-sans text-sm">

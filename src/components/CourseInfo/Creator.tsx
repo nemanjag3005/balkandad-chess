@@ -29,7 +29,7 @@ const Creator = () => {
         <div className="bg-neutral-50 pt-px sm:rounded-3xl">
           <div className="relative mx-auto -mt-16 h-44 w-44 overflow-hidden rounded-full bg-neutral-200 md:float-right md:h-64 md:w-64 md:[shape-outside:circle(40%)] lg:mr-20 lg:h-72 lg:w-72">
             <Avatar className="h-full w-full">
-              <AvatarImage src="https://github.com/shadcn.png" />
+              <AvatarImage src="/lazar1.jpeg" className="object-cover" />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
           </div>
