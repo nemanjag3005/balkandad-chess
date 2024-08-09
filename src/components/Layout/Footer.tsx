@@ -83,7 +83,7 @@ const Footer = () => {
                   <Link href="/blog" className="font-sans text-neutral-500">
                     Balkan Repertoires
                   </Link>
-                  <Link href="/login" className="font-sans text-neutral-500">
+                  <Link href="/course" className="font-sans text-neutral-500">
                     Enroll
                   </Link>
                 </ul>

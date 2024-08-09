@@ -20,7 +20,6 @@ const SectionsNav = () => {
     } before:mb-2 before:font-mono before:text-sm before:text-neutral-500 before:content-[counter(section,decimal-leading-zero)] hover:bg-yellow-50/40 hover:before:text-neutral-900`;
   };
 
-  console.log("Active section:", activeSection);
   return (
     <div className="sticky top-0 z-50 font-sans">
       <div className="sm:hidden" data-headlessui-state="">

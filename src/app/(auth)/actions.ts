@@ -2,8 +2,8 @@
 
 import { createClient } from "~/utils/supabase/server";
 import { headers } from "next/headers";
-import { LoginInput } from "./login/page";
-import { SignupInput } from "./checkout/page";
+import { type LoginInput } from "./login/page";
+import { type SignupInput } from "./sign-up/page";
 
 const supabase = createClient();
 const origin = headers().get("origin");

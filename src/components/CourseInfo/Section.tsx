@@ -18,7 +18,6 @@ const Section: React.FC<SectionProps> = ({ id, children }) => {
     if (inView) {
       setActiveSection(id);
     }
-    console.log(id);
   }, [inView, id, setActiveSection]);
 
   return (

@@ -2,7 +2,7 @@
 "use client";
 import Link from "next/link";
 import React, { useCallback, useState } from "react";
-import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import ReactPlayer from "react-player/youtube";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
@@ -12,16 +12,23 @@ import { Dialog, DialogContent, DialogFooter } from "../ui/dialog";
 import { Button } from "../ui/button";
 
 const homeRoutes: { title: string; href: string }[] = [
-  { title: "Home", href: "/" },
-  { title: "Course", href: "/course" },
-  { title: "Bio", href: "/bio" },
-  { title: "Coach", href: "/coach" },
-  { title: "Blog", href: "/blog" },
+  { title: "Home", href: "home" },
+  { title: "Course", href: "course" },
+  { title: "Bio", href: "bio" },
+  { title: "Coach", href: "coach" },
+  { title: "Blog", href: "blog" },
 ];
 
 type Piece = string;
 
 const Landing = () => {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const [movesMade, setMovesMade] = useState<number>(0);
   const [selectedPiece, setSelectedPiece] = useState<Position | null>(null);
   const [validMoves, setValidMoves] = useState<Position[]>([]);
@@ -248,7 +255,7 @@ const Landing = () => {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className="flex items-center justify-center">
+      <div id="home" className="flex items-center justify-center">
         <div className="grid w-full max-w-6xl grid-cols-8 grid-rows-6 border-t">
           <div className="col-span-8 row-span-2 grid grid-cols-1 grid-rows-3 md:col-span-4">
             <div className="row-span-2 flex flex-col items-center justify-center px-4">
@@ -261,9 +268,13 @@ const Landing = () => {
             </div>
             <ul className="flex w-full items-center justify-around border-t py-4 font-sans text-xs font-bold uppercase">
               {homeRoutes.map((route) => (
-                <Link key={route.href} href={route.href}>
+                <div
+                  key={route.href}
+                  className="cursor-pointer"
+                  onClick={() => scrollToSection(route.href)}
+                >
                   <li className="nav w-[100%] py-1">{route.title}</li>
-                </Link>
+                </div>
               ))}
             </ul>
           </div>

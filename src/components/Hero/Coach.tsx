@@ -3,7 +3,10 @@ import Image from "next/image";
 
 const Coach = () => {
   return (
-    <div className="mt-10 flex items-center justify-center bg-neutral-50">
+    <div
+      id="coach"
+      className="mt-10 flex items-center justify-center bg-neutral-50"
+    >
       <div className="flex w-full max-w-6xl flex-col items-center px-4 py-8">
         <h4 className="font-sans text-sm font-bold uppercase text-primary">
           i also coach

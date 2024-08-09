@@ -7,7 +7,10 @@ import ReactPlayer from "react-player/youtube";
 
 const Course = () => {
   return (
-    <div className="flex items-center justify-center bg-neutral-50 py-10">
+    <div
+      id="course"
+      className="flex items-center justify-center bg-neutral-50 py-10"
+    >
       <div className="grid w-full max-w-6xl grid-cols-8 grid-rows-6 bg-white shadow-lg">
         <div className="col-span-8 row-span-5 border-b p-8 md:col-span-5">
           <h1 className="font-sans text-6xl font-medium">

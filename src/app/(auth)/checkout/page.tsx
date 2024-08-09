@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 "use client";
 
 import Link from "next/link";
@@ -11,16 +15,27 @@ import {
   FormMessage,
 } from "~/components/ui/form";
 
+import { loadStripe } from "@stripe/stripe-js";
+import {
+  Elements,
+  CardElement,
+  useStripe,
+  useElements,
+  EmbeddedCheckoutProvider,
+  EmbeddedCheckout,
+} from "@stripe/react-stripe-js";
+
 import { Input } from "~/components/ui/input";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { signUp } from "../actions";
 import LogoPlain from "~/components/ui/Logos/LogoPlain";
+import { useRouter } from "next/navigation";
 
 const registerSchema = z.object({
   email: z.string().email(),
@@ -33,27 +48,45 @@ export default function Checkout() {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
 
-  const onSubmit = async (data: SignupInput) => {
-    setSuccess("Check your email for further instructions");
-    const result = await signUp(data);
-    if (result?.error) {
-      setSuccess(null);
-      setError(result.error);
-    }
-  };
+  // const onSubmit = async (data: SignupInput) => {
+  //   setSuccess("Check your email for further instructions");
+  //   const result = await signUp(data);
+  //   if (result?.error) {
+  //     setSuccess(null);
+  //     setError(result.error);
+  //   }
+  // };
 
-  const form = useForm<SignupInput>({
-    resolver: zodResolver(registerSchema),
-    defaultValues: {
-      email: "",
-      password: "",
-    },
-  });
+  // const form = useForm<SignupInput>({
+  //   resolver: zodResolver(registerSchema),
+  //   defaultValues: {
+  //     email: "",
+  //     password: "",
+  //   },
+  // });
+
+  const stripePromise = loadStripe(
+    process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY ?? "",
+  );
+
+  const fetchClientSecret = useCallback(async () => {
+    // Create a Checkout Session
+    return fetch("/api/payments", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => data.client_secret);
+  }, []);
+
+  const options = { fetchClientSecret };
 
   return (
     <div className="flex flex-auto flex-col overflow-hidden font-sans lg:flex-row">
-      <div className="bg-grid-black/[0.2] absolute inset-x-0 top-0 overflow-hidden pl-[50%] lg:left-[32rem] lg:pl-0 xl:left-[34rem]"></div>
-      <div className="bg-grid-black/[0.05] relative shrink-0 px-4 lg:order-2 lg:min-w-0 lg:flex-1 lg:px-16 xl:px-20">
+      <div className="absolute inset-x-0 top-0 overflow-hidden pl-[50%] bg-grid-black/[0.2] lg:left-[32rem] lg:pl-0 xl:left-[34rem]"></div>
+      <div className="relative shrink-0 px-4 bg-grid-black/[0.05] lg:order-2 lg:min-w-0 lg:flex-1 lg:px-16 xl:px-20">
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
         <div className="mx-auto grid max-w-md grid-cols-1 lg:mx-0 lg:max-w-lg">
           <div className="relative py-10 lg:pt-24">
@@ -158,11 +191,9 @@ export default function Checkout() {
           <li className="">Payment</li>
         </ul>
         <section className="mx-auto max-w-md lg:mt-12 lg:max-w-sm">
-          <div>
-            <div className="-m-[13px]">
-              <div className="paddle-checkout-container"></div>
-            </div>
-          </div>
+          <EmbeddedCheckoutProvider stripe={stripePromise} options={options}>
+            <EmbeddedCheckout className="max-h-[80dvh]" />
+          </EmbeddedCheckoutProvider>
         </section>
       </div>
     </div>

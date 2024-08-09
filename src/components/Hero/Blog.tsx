@@ -7,7 +7,10 @@ import localizedFormat from "dayjs/plugin/localizedFormat";
 const Blog = () => {
   dayjs.extend(localizedFormat);
   return (
-    <div className="relative flex flex-col items-center justify-center bg-chess-clock bg-cover bg-no-repeat py-10">
+    <div
+      id="blog"
+      className="relative flex flex-col items-center justify-center bg-chess-clock bg-cover bg-no-repeat py-10"
+    >
       <div className="absolute inset-0 bg-gradient-radial from-[#FFFFFFCC] to-[#FFFFFF]"></div>
       <div className="z-10 flex w-full max-w-6xl flex-col items-center px-4 py-8">
         <h4 className="font-sans text-sm font-bold uppercase text-primary">

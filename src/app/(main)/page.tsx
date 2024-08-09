@@ -1,3 +1,4 @@
+import Section from "~/components/CourseInfo/Section";
 import Bio from "~/components/Hero/Bio";
 import Blog from "~/components/Hero/Blog";
 import Coach from "~/components/Hero/Coach";
