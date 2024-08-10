@@ -1,10 +1,17 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import Image from "next/image";
 import React from "react";
 import "dayjs/locale/en";
 import dayjs from "dayjs";
 import localizedFormat from "dayjs/plugin/localizedFormat";
+import Link from "next/link";
+import { Button } from "../ui/button";
 
-const Blog = () => {
+const Blog = ({ posts }: { posts: any }) => {
   dayjs.extend(localizedFormat);
   return (
     <div
@@ -23,36 +30,40 @@ const Blog = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
           tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
         </p>
-        <div className="mt-10 grid w-full gap-6 md:grid-cols-3">
-          <div className="cursor-pointer rounded-xl bg-[#1b1b1b] transition-all duration-300 ease-in-out hover:scale-105">
-            <div className="relative h-60 w-full">
-              <Image
-                src="/coach1.jpg"
-                alt="Article"
-                fill
-                className="rounded-t-xl object-cover"
-              />
-              <div className="absolute left-2 top-2 bg-primary px-2.5 py-1 font-sans text-xs text-neutral-700">
-                Blog
-              </div>
-            </div>
-            <div className="p-4 font-sans">
-              <div className="mb-3 flex items-center justify-start space-x-4">
-                <p className="text-xs text-neutral-300">
-                  {dayjs("07/02/2024").format("ll")}
+        <div className="mt-10 grid w-full gap-10 md:grid-cols-3">
+          {posts.map((post: any) => (
+            <Link href={`/blog/${post.slug}`} key={post._id}>
+              <div className="group">
+                <div className="relative h-60 w-full rounded-xl border transition-all duration-300 ease-in-out group-hover:scale-105">
+                  <Image
+                    src={post.mainImage}
+                    alt={post.title}
+                    fill
+                    className="rounded-xl object-cover"
+                  />
+                </div>
+                <div className="my-3 flex items-center justify-start space-x-4">
+                  <p className="text-xs text-neutral-500">
+                    {dayjs(post.publishedAt).format("ll")}
+                  </p>
+                  <div className="rounded-2xl bg-primary px-2.5 py-1 text-xs text-neutral-700 dark:bg-neutral-700 dark:text-white">
+                    {post.categories[0].title}
+                  </div>
+                </div>
+
+                <h1 className="font-semibold text-neutral-900 group-hover:underline">
+                  {post.title}
+                </h1>
+                <p className="mt-4 max-w-sm text-sm font-light text-neutral-500">
+                  {post.excerpt}
                 </p>
               </div>
-
-              <h1 className="font-semibold text-neutral-100 group-hover:underline">
-                7 Tips to Improve Your Chess Game
-              </h1>
-              <p className="mt-4 max-w-sm text-sm font-light text-neutral-200">
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-                commodo ligula eget dolor....
-              </p>
-            </div>
-          </div>
+            </Link>
+          ))}
         </div>
+        <Link href="/blog">
+          <Button className="mt-6">Show All</Button>
+        </Link>
       </div>
       <div className="relative z-10 mt-20 flex w-full max-w-6xl flex-col items-center space-y-8 bg-chess-pieces bg-center px-8 py-14 text-center font-sans md:items-start md:pl-24 md:pr-80 md:text-left">
         <div className="absolute inset-0 bg-gradient-radial from-[#1B1B1BCC] to-[#333333] opacity-75"></div>
