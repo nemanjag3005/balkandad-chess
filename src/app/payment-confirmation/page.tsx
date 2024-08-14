@@ -1,4 +1,5 @@
 import { stripe } from "~/utils/stripe";
+import { createClient } from "~/utils/supabase/server";
 
 async function getSession(sessionId: string) {
   try {
@@ -30,8 +31,6 @@ export default async function CheckoutReturnPage({
   }
 
   if (session?.status === "complete") {
-    // * upgrade the membership or do something to make change to the database to mark this payment complete
-    // * this can be making the user a PRO member or add items ... etc.
     return (
       <div className="flex h-screen flex-col items-center justify-center gap-4 bg-background py-32">
         <h1 className="text-4xl font-bold">Thank you for your purchase!</h1>

@@ -1,15 +1,23 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+
+import { LibraryBig, LogOut, User } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { type User } from "@supabase/supabase-js";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { type User as UserType } from "@supabase/supabase-js";
 import { createClient } from "~/utils/supabase/client";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
 
-const ProfileButton: React.FC<{ user: User }> = ({ user }) => {
-  const [menuOpen, setMenuOpen] = useState(false);
-
+const ProfileButton: React.FC<{ user: UserType }> = ({ user }) => {
   const router = useRouter();
   const supabase = createClient();
 
@@ -18,76 +26,59 @@ const ProfileButton: React.FC<{ user: User }> = ({ user }) => {
     router.refresh();
   };
 
-  const ref = React.useRef<HTMLDivElement>(null);
-
-  // close the modal if we click outside of it
-  useEffect(() => {
-    const handleOutsideClick = (event: MouseEvent) => {
-      if (!ref.current?.contains(event.target as Node)) {
-        setMenuOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleOutsideClick);
-
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    };
-  }, [ref]);
-
   if (!user) return null;
   return (
-    <div ref={ref} className="relative hidden font-sans sm:block">
-      <Avatar
-        className="hover:cursor-pointer"
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
-        <AvatarImage src="https://wallpapers.com/images/high/funny-profile-picture-7k1legjukiz1lju7.webp" />
-        <AvatarFallback>CN</AvatarFallback>
-      </Avatar>
-      {menuOpen && (
-        <div className="absolute right-5 top-16 z-50 flex w-72 flex-col rounded-lg bg-white p-4">
-          <div className="flex items-center">
-            <div className="flex flex-col">
-              <p className="text-md">{user?.email}</p>
-            </div>
-          </div>
-          <hr className="my-2 border-t-2 border-slate-600" />
-          <p className="py-2 text-lg">
-            <Link
-              onClick={() => setMenuOpen(false)}
-              className=""
-              href="/profile"
-            >
-              Profile
-            </Link>
-          </p>
-          <p className="py-2 text-lg">
-            <Link
-              onClick={() => setMenuOpen(false)}
-              className=""
-              href="/settings"
-            >
-              Settings
-            </Link>
-          </p>
-
-          <div className="py-2 text-lg text-muted-foreground">
-            <button
-              className="hover:text-muted-foreground/70"
-              onClick={() =>
-                signOut().then(() => {
-                  setMenuOpen(false);
-                  router.refresh();
-                })
-              }
-            >
-              Sign out
-            </button>
-          </div>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <div className="cursor-pointer rounded-full border p-2 hover:bg-neutral-50">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="h-5 w-5"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+            />
+          </svg>
         </div>
-      )}
-    </div>
+      </DropdownMenuTrigger>
+
+      <DropdownMenuContent className="w-56 font-sans">
+        <DropdownMenuLabel>My Account</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+
+        <DropdownMenuGroup>
+          <Link href="/profile">
+            <DropdownMenuItem>
+              <User className="mr-2 h-4 w-4" />
+              <span>Profile</span>
+            </DropdownMenuItem>
+          </Link>
+          <Link href="/lessons/introduction">
+            <DropdownMenuItem>
+              <LibraryBig className="mr-2 h-4 w-4" />
+              <span>Lessons</span>
+            </DropdownMenuItem>
+          </Link>
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem
+          onClick={() =>
+            signOut().then(() => {
+              router.refresh();
+            })
+          }
+        >
+          <LogOut className="mr-2 h-4 w-4" />
+          <span>Log out</span>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 };
 

@@ -30,14 +30,16 @@ const Course = () => {
                 Learn now
               </Button>
             </Link>
-            <div className="flex items-center space-x-1.5">
-              <button className="rounded-full bg-black p-2.5">
-                <PlayIcon className="h-3 w-3 text-white" />
-              </button>
-              <p className="font-sans text-xs font-semibold uppercase">
-                watch intro class{" "}
-              </p>
-            </div>
+            <Link href="/lessons/introduction">
+              <div className="flex items-center space-x-1.5">
+                <button className="rounded-full bg-black p-2.5">
+                  <PlayIcon className="h-3 w-3 text-white" />
+                </button>
+                <p className="font-sans text-xs font-semibold uppercase">
+                  watch intro class{" "}
+                </p>
+              </div>
+            </Link>
           </div>
         </div>
         <div className="relative order-2 col-span-8 row-span-6 flex items-center justify-center border-l border-t pb-16 pl-32 pr-8 md:order-none md:col-span-3 md:border-t-0 md:pb-0">

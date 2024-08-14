@@ -33,7 +33,7 @@ import React, { useCallback, useState } from "react";
 
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { signUp } from "../actions";
+import { signUp } from "../(auth)/actions";
 import LogoPlain from "~/components/ui/Logos/LogoPlain";
 import { useRouter } from "next/navigation";
 
