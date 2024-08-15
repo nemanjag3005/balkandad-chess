@@ -1,7 +1,28 @@
-// import { z } from "zod";
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+import { eq } from "drizzle-orm";
+import { z } from "zod";
 
-// import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
-// import { posts } from "~/server/db/schema";
+import { createTRPCRouter, privateProcedure } from "~/server/api/trpc";
+import { users } from "~/server/db/schema";
+
+export const userRouter = createTRPCRouter({
+  updateToPaid: privateProcedure.mutation(async ({ ctx }) => {
+    const userId = await ctx.db.query.users
+      .findFirst({
+        where: eq(users.id, ctx.user.id),
+      })
+      .then((user) => {
+        if (user) return user.id;
+      });
+    if (!userId) {
+      throw new Error("User not found");
+    }
+    return ctx.db
+      .update(users)
+      .set({ status: "paid" })
+      .where(eq(users.id, userId));
+  }),
+});
 
 // export const postRouter = createTRPCRouter({
 //   hello: publicProcedure

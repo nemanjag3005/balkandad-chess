@@ -10,6 +10,7 @@ const AuthComponent = async () => {
   const {
     data: { user },
   } = await supabase.auth.getUser();
+
   return user ? (
     <ProfileButton user={user} />
   ) : (

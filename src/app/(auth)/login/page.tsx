@@ -45,6 +45,7 @@ export default function Login() {
     if (result?.error) {
       setError(result.error);
     }
+    console.log(result);
   };
 
   return (

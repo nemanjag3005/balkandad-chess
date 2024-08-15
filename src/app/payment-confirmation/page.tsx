@@ -1,3 +1,7 @@
+import Link from "next/link";
+import { Button } from "~/components/ui/button";
+import LogoPlain from "~/components/ui/Logos/LogoPlain";
+import { api } from "~/trpc/server";
 import { stripe } from "~/utils/stripe";
 import { createClient } from "~/utils/supabase/server";
 
@@ -31,10 +35,20 @@ export default async function CheckoutReturnPage({
   }
 
   if (session?.status === "complete") {
+    try {
+      await api.user.updateToPaid();
+    } catch (error) {
+      console.error("Error updating user to paid", error);
+      return <p>Error: Something wrong!</p>;
+    }
     return (
-      <div className="flex h-screen flex-col items-center justify-center gap-4 bg-background py-32">
+      <div className="flex h-screen flex-col items-center justify-center gap-4 bg-background py-32 font-sans">
+        <LogoPlain className="h-16 w-16" />
         <h1 className="text-4xl font-bold">Thank you for your purchase!</h1>
-        <h3 className="text-xl font-semibold">You are now a pro user!</h3>
+        <h3 className="text-xl font-semibold">You have unlocked my course!</h3>
+        <Link href="/lessons/introduction">
+          <Button variant="outline">Start your chess journey &rarr;</Button>
+        </Link>
       </div>
     );
   }
