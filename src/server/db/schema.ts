@@ -7,6 +7,7 @@ import {
   pgTableCreator,
   serial,
   timestamp,
+  uuid,
   varchar,
 } from "drizzle-orm/pg-core";
 
@@ -21,7 +22,7 @@ export const createTable = pgTableCreator((name) => `balkandad-chess_${name}`);
 export const users = createTable(
   "user",
   {
-    id: serial("id").primaryKey(),
+    id: uuid("id").primaryKey(),
     name: varchar("email", { length: 256 }),
     status: varchar("status", { length: 256 }),
     createdAt: timestamp("created_at", { withTimezone: true })
