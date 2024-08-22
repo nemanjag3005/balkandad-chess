@@ -22,6 +22,21 @@ export const userRouter = createTRPCRouter({
       .set({ status: "paid" })
       .where(eq(users.id, userId));
   }),
+  checkPaidStatus: privateProcedure.query(async ({ ctx }) => {
+    const userStatus = await ctx.db.query.users
+      .findFirst({
+        where: eq(users.id, ctx.user.id),
+      })
+      .then((user) => {
+        if (user) return user.status;
+      });
+    if (!userStatus) {
+      throw new Error("User not found");
+    }
+    if (userStatus === "paid") {
+      return true;
+    } else return false;
+  }),
 });
 
 // export const postRouter = createTRPCRouter({

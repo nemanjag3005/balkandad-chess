@@ -11,6 +11,20 @@ export const postsQuery = groq`*[_type == "post"] | order(publishedAt desc)[0...
             body,
         }`;
 
+export const lessonsListQuery = groq`
+  *[_type == "lessonChapter"] {
+    title,
+    chapterNumber,
+    "lessons": lessons[]-> {
+      title,
+      "slug": slug.current,
+      "thumbnail": thumbnail.asset->url,
+      duration,
+      isFree
+    }
+  }
+`;
+
 export const postQuery = groq`*[_type == "post" && slug.current == $slug][0]{
            _id,
             publishedAt,
@@ -21,6 +35,20 @@ export const postQuery = groq`*[_type == "post" && slug.current == $slug][0]{
             categories[]->,
             body,
 
+        }`;
+
+export const lessonQuery = groq`*[_type == "lesson" && slug.current == $slug][0]{
+           _id,
+            publishedAt,
+            title,
+            videoUrl,
+            isFree,
+            description,
+            "slug": slug.current,
+            "thumbnail": thumbnail.asset->url,
+            duration,
+            body,
+            number
         }`;
 
 export const podcastsQuery = groq`*[_type == "podcastEpisode"] | order(publishedAt asc){

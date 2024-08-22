@@ -58,6 +58,11 @@ export default defineType({
       validation: (Rule) => Rule.required().min(1),
     }),
     defineField({
+      name: "number",
+      title: "Lesson Number",
+      type: "number",
+    }),
+    defineField({
       name: "publishedAt",
       title: "Published At",
       type: "datetime",
