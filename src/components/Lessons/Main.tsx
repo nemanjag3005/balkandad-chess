@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 "use client";
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -10,14 +11,48 @@ import { AspectRatio } from "../ui/aspect-ratio";
 import { useRouter } from "next/navigation";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
+import { ChevronRightIcon } from "@heroicons/react/24/solid";
+import Link from "next/link";
 
-const Main = ({ lesson, isPaid }: { lesson: any; isPaid: boolean }) => {
+const findNextLesson = (currentSlug: string, lessonsList: any) => {
+  let foundCurrent = false;
+  for (const chapter of lessonsList) {
+    for (let i = 0; i < chapter.lessons.length; i++) {
+      if (foundCurrent) {
+        return {
+          slug: chapter.lessons[i].slug,
+          title: chapter.lessons[i].title,
+          number: i + 1,
+        };
+      }
+      if (chapter.lessons[i].slug === currentSlug) {
+        foundCurrent = true;
+        if (i === chapter.lessons.length - 1) {
+          continue;
+        }
+      }
+    }
+  }
+  return null;
+};
+
+const Main = ({
+  lesson,
+  isPaid,
+  lessonsList,
+}: {
+  lesson: any;
+  isPaid: boolean;
+  lessonsList: any;
+}) => {
   const router = useRouter();
 
   if (!isPaid && !lesson.isFree) {
     router.push("/course");
     return null;
   }
+
+  const nextLesson = findNextLesson(lesson.slug, lessonsList);
 
   const components = {
     block: {
@@ -56,9 +91,23 @@ const Main = ({ lesson, isPaid }: { lesson: any; isPaid: boolean }) => {
         />
       </AspectRatio>
       <div className="mx-auto w-full max-w-7xl">
-        <div className="flex flex-col items-center justify-center space-y-2 rounded-b-3xl bg-primary py-8">
-          <h4>01.</h4>
-          <h2 className="text-2xl font-bold">{lesson.title}</h2>
+        <div className="relative flex items-center justify-center space-y-2 rounded-b-3xl bg-primary px-8 py-8">
+          <div className="flex flex-col items-center">
+            <h4>01.</h4>
+            <h2 className="text-2xl font-bold">{lesson.title}</h2>
+          </div>
+          {nextLesson && (
+            <Link
+              href={`/lessons/${nextLesson.slug}`}
+              className="group absolute right-8 top-5 flex items-center justify-center space-x-4 rounded-lg px-4 py-1.5 hover:bg-primary-dark"
+            >
+              <div className="flex flex-col items-end opacity-0 transition-opacity duration-150 ease-in-out group-hover:opacity-100">
+                <span className="font-light">0{nextLesson.number}.</span>
+                <span className="font-semibold">{nextLesson.title}</span>
+              </div>
+              <ChevronRightIcon className="h-5 w-5 text-black" />
+            </Link>
+          )}
         </div>
         <div className="prose prose-neutral mx-auto my-14 max-w-none px-12">
           {/*//@ts-expect-error doesnt work*/}

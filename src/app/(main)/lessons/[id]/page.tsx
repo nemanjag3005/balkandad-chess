@@ -44,7 +44,7 @@ export default async function Lesson({ params }: Props) {
 
   return (
     <>
-      <Main lesson={lesson} isPaid={isPaid} />
+      <Main lesson={lesson} isPaid={isPaid} lessonsList={lessonsList} />
       <Sidebar lessonsList={lessonsList} />
     </>
   );

@@ -11,6 +11,17 @@ export const postsQuery = groq`*[_type == "post"] | order(publishedAt desc)[0...
             body,
         }`;
 
+export const allPostsQuery = groq`*[_type == "post"] | order(publishedAt desc){
+            _id,
+            publishedAt,
+            title,
+            excerpt,
+            "slug": slug.current,
+            "mainImage": mainImage.asset->url,
+            categories[]->,
+            body,
+        }`;
+
 export const lessonsListQuery = groq`
   *[_type == "lessonChapter"] {
     title,
