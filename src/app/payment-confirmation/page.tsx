@@ -1,9 +1,13 @@
 import Link from "next/link";
+import { type Metadata } from "next/types";
 import { Button } from "~/components/ui/button";
 import LogoPlain from "~/components/ui/Logos/LogoPlain";
 import { api } from "~/trpc/server";
 import { stripe } from "~/utils/stripe";
-import { createClient } from "~/utils/supabase/server";
+
+export const metadata: Metadata = {
+  title: `BalkanDad Chess | Payment Confirmation`,
+};
 
 async function getSession(sessionId: string) {
   try {

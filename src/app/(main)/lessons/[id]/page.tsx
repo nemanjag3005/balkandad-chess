@@ -13,7 +13,7 @@ type Props = {
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: `Balkandad Chess | Podcast`,
+  title: `Balkandad Chess | Lessons`,
 };
 
 export default async function Lesson({ params }: Props) {

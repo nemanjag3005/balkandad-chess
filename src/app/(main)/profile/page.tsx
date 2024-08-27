@@ -1,3 +1,4 @@
+import { Metadata } from "next/types";
 import { Button } from "~/components/ui/button";
 import {
   Card,
@@ -8,6 +9,10 @@ import {
   CardTitle,
 } from "~/components/ui/card";
 import { Input } from "~/components/ui/input";
+
+export const metadata: Metadata = {
+  title: `BalkanDad Chess | My Profile`,
+};
 
 export default async function Profile() {
   return (

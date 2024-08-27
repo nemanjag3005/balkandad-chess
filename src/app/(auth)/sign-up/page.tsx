@@ -19,6 +19,11 @@ import React, { useState } from "react";
 
 import { signUp } from "../actions";
 import LogoPlain from "~/components/ui/Logos/LogoPlain";
+import { type Metadata } from "next/types";
+
+export const metadata: Metadata = {
+  title: `BalkanDad Chess | Sign Up`,
+};
 
 const registerSchema = z
   .object({
