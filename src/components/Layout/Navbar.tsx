@@ -51,7 +51,7 @@ const Navbar: React.FC<{
   };
   return (
     <nav className="flex w-full items-center justify-center">
-      <div className="grid w-full max-w-6xl grid-cols-8">
+      <div className="grid w-full max-w-6xl grid-cols-8 px-4 md:px-0">
         <div className="flex items-center justify-center">
           <div className="flex items-center justify-center bg-black p-2">
             <Link href="/">

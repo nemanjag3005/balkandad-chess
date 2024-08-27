@@ -22,6 +22,30 @@ export const allPostsQuery = groq`*[_type == "post"] | order(publishedAt desc){
             body,
         }`;
 
+export const balkanRepertoirePostsQuery = groq`
+  *[_type == "post" && "Balkan Repertoire" in categories[]->title] | order(publishedAt desc) {
+    _id,
+    publishedAt,
+    title,
+    excerpt,
+    "slug": slug.current,
+    "mainImage": mainImage.asset->url,
+    categories[]->,
+    body
+  }
+`;
+
+export const otherPostsQuery = groq`*[_type == "post" && slug.current != $slug] | order(publishedAt desc)[0...3]{
+            _id,
+            publishedAt,
+            title,
+            excerpt,
+            "slug": slug.current,
+            "mainImage": mainImage.asset->url,
+            categories[]->,
+            body,
+        }`;
+
 export const lessonsListQuery = groq`
   *[_type == "lessonChapter"] {
     title,

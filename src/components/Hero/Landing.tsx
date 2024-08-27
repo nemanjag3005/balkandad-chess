@@ -231,25 +231,32 @@ const Landing = () => {
     const rows = ["8", "7", "6", "5", "4", "3", "2", "1"];
     const columns = ["a", "b", "c", "d", "e", "f", "g", "h"];
 
-    return rows.map((row, rowIndex) =>
-      columns.map((col, colIndex) => {
-        const position = `${col}${row}`;
-        const piece = getPieceAtPosition(position);
-        const color = (rowIndex + colIndex) % 2 === 0 ? "white" : "primary";
+    return (
+      <div className="grid h-full w-full grid-cols-8 grid-rows-8">
+        {" "}
+        {rows.map((row, rowIndex) =>
+          columns.map((col, colIndex) => {
+            const position = `${col}${row}`;
+            const piece = getPieceAtPosition(position);
+            const color = (rowIndex + colIndex) % 2 === 0 ? "white" : "primary";
 
-        return (
-          <ChessSquare
-            key={position}
-            color={color}
-            piece={piece}
-            position={position}
-            isSelected={selectedPiece === position}
-            isValidMove={validMoves.includes(position)}
-            onMove={handleMove}
-            onSelect={piece ? (p, pos) => handlePieceSelect(p, pos) : () => {}}
-          />
-        );
-      }),
+            return (
+              <ChessSquare
+                key={position}
+                color={color}
+                piece={piece}
+                position={position}
+                isSelected={selectedPiece === position}
+                isValidMove={validMoves.includes(position)}
+                onMove={handleMove}
+                onSelect={
+                  piece ? (p, pos) => handlePieceSelect(p, pos) : () => {}
+                }
+              />
+            );
+          }),
+        )}
+      </div>
     );
   };
 
@@ -262,7 +269,7 @@ const Landing = () => {
               <h1 className="text-center text-5xl font-semibold">
                 Lazar Vilotijević
               </h1>
-              <h6 className="mt-4 font-sans text-lg font-bold text-primary">
+              <h6 className="mt-4 font-sans text-lg font-bold uppercase italic text-primary">
                 BalkanDad Chess
               </h6>
             </div>
@@ -329,10 +336,16 @@ const Landing = () => {
                       <path d="M13.6823 10.6218L20.2391 3H18.6854L12.9921 9.61788L8.44486 3H3.2002L10.0765 13.0074L3.2002 21H4.75404L10.7663 14.0113L15.5685 21H20.8132L13.6819 10.6218H13.6823ZM11.5541 13.0956L10.8574 12.0991L5.31391 4.16971H7.70053L12.1742 10.5689L12.8709 11.5655L18.6861 19.8835H16.2995L11.5541 13.096V13.0956Z"></path>
                     </svg>
                   </a>
-                  <a href="/" className="bg-black p-2">
+                  <a
+                    href="https://www.instagram.com/lazarvilotiijevic/"
+                    className="bg-black p-2"
+                  >
                     <FaInstagram className="h-6 w-6 fill-white" />
                   </a>
-                  <a href="/" className="bg-white p-2">
+                  <a
+                    href="https://www.youtube.com/@BalkanDadChess"
+                    className="bg-white p-2"
+                  >
                     <FaYoutube className="h-6 w-6 fill-black" />
                   </a>
                 </div>
@@ -346,7 +359,7 @@ const Landing = () => {
               </div>
             </div>
           </div>
-          <div className="col-span-8 row-span-4 grid h-[38rem] grid-cols-8 grid-rows-8 border md:col-span-4 md:h-[36rem]">
+          <div className="col-span-8 row-span-4 aspect-square w-full md:col-span-4">
             {renderChessboard()}
           </div>
         </div>

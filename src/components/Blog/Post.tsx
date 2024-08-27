@@ -13,7 +13,7 @@ import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import Link from "next/link";
 
-const Post = ({ post }: { post: any }) => {
+const Post = ({ post, morePosts }: { post: any; morePosts: any }) => {
   dayjs.extend(localizedFormat);
   const components = {
     block: {
@@ -65,37 +65,37 @@ const Post = ({ post }: { post: any }) => {
             Read More
           </motion.p>
         </div>
-        {/* <div className="mb-5 mt-20 grid grid-cols-1 gap-10 md:grid-cols-3">
-          {moreNews.map((article: any) => (
-            <Link href={`/lab-news/${article.slug}`} key={article._id}>
+        <div className="mb-5 mt-20 grid grid-cols-1 gap-10 md:grid-cols-3">
+          {morePosts.map((post: any) => (
+            <Link href={`/blog/${post.slug}`} key={post._id}>
               <div className="group">
-                <div className="relative h-60 w-full rounded-xl border">
+                <div className="relative h-60 w-full rounded-xl border transition-all duration-300 ease-in-out group-hover:scale-105">
                   <Image
-                    src={article.mainImage}
-                    alt={article.title}
+                    src={post.mainImage}
+                    alt={post.title}
                     fill
                     className="rounded-xl object-cover"
                   />
                 </div>
                 <div className="my-3 flex items-center justify-start space-x-4">
                   <p className="text-xs text-neutral-500">
-                    {dayjs(article.publishedAt).format("ll")}
+                    {dayjs(post.publishedAt).format("ll")}
                   </p>
-                  <div className="rounded-2xl bg-neutral-100 px-2.5 py-1 text-xs text-neutral-700 dark:bg-neutral-700 dark:text-white">
-                    {article.categories[0].title}
+                  <div className="rounded-2xl bg-primary px-2.5 py-1 text-xs text-neutral-700 dark:bg-neutral-700 dark:text-white">
+                    {post.categories[0].title}
                   </div>
                 </div>
 
                 <h1 className="font-semibold text-neutral-900 group-hover:underline">
-                  {article.title}
+                  {post.title}
                 </h1>
                 <p className="mt-4 max-w-sm text-sm font-light text-neutral-500">
-                  {article.excerpt}
+                  {post.excerpt}
                 </p>
               </div>
             </Link>
           ))}
-        </div> */}
+        </div>
       </div>
     </article>
   );

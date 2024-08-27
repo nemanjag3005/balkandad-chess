@@ -1,7 +1,7 @@
 import { type Metadata } from "next/types";
 import Post from "~/components/Blog/Post";
 import { sanityFetch } from "~/sanity/lib/client";
-import { postQuery } from "~/sanity/queries";
+import { otherPostsQuery, postQuery } from "~/sanity/queries";
 
 type Props = {
   params: { id: string };
@@ -20,9 +20,14 @@ export default async function BlogPost({ params }: Props) {
     tags: ["post"],
     qParams: { slug: id },
   });
+  const morePosts = await sanityFetch({
+    query: otherPostsQuery,
+    tags: ["post"],
+    qParams: { slug: id },
+  });
   return (
     <>
-      <Post post={post} />
+      <Post post={post} morePosts={morePosts} />
     </>
   );
 }

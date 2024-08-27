@@ -31,7 +31,7 @@ const ChessSquare: React.FC<ChessSquareProps> = ({
       ref={drop as unknown as LegacyRef<HTMLDivElement>}
       className={`relative ${squareColor} ${
         isOver ? "border-4 border-neutral-300" : ""
-      } h-18 w-18`}
+      } aspect-square w-full`}
     >
       {isValidMove && (
         <div className="absolute inset-0 flex items-center justify-center">

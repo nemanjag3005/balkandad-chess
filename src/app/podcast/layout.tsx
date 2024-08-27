@@ -1,11 +1,11 @@
+"use client";
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 import { Button } from "~/components/ui/button";
 
-const Layout: React.FC<{ children: React.ReactNode }> = async ({
-  children,
-}) => {
+const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [showMore, setShowMore] = React.useState(false);
   return (
     <div className="flex min-h-full font-sans">
       <div className="w-full overflow-x-hidden">
@@ -61,16 +61,26 @@ const Layout: React.FC<{ children: React.ReactNode }> = async ({
                 </svg>
                 <span className="ml-2.5">About</span>
               </h2>
-              <p className="mt-2 text-base leading-7 text-neutral-700 lg:line-clamp-4">
+              <p className="mt-2 text-base leading-7 text-neutral-700">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-                tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
-              </p>
-              <button
-                type="button"
-                className="mt-2 hidden text-sm font-bold leading-6 text-primary hover:text-primary-dark active:text-pink-900 lg:inline-block"
-              >
-                Show more
-              </button>
+                tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.{" "}
+                {showMore && (
+                  <span>
+                    Ut elit tellus, luctus nec ullamcorper mattis, pulvinar
+                    dapibus leo. Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit. Ut elit tellus
+                  </span>
+                )}
+              </p>{" "}
+              {!showMore && (
+                <button
+                  type="button"
+                  onClick={() => setShowMore(true)}
+                  className="mt-2 hidden text-sm font-bold leading-6 text-primary hover:text-primary-dark active:text-pink-900 lg:inline-block"
+                >
+                  Show more
+                </button>
+              )}
             </section>
             <section className="mt-10 lg:mt-12">
               <h2 className="sr-only flex items-center font-mono text-sm font-medium leading-7 text-neutral-900 lg:not-sr-only">
