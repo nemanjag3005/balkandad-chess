@@ -14,41 +14,37 @@ const Testimonials = () => {
               className="[&amp;:focus:not(:focus-visible)]:outline-none relative h-12 w-12 overflow-hidden rounded-full bg-neutral-100 opacity-40 shadow-md ring-2 ring-white transition"
               value="t1"
             >
-              <Image src="/coach1.jpg" alt="" fill />
+              <Image src="/test2.webp" alt="" fill />
             </TabsTrigger>
             <TabsTrigger
               className="[&amp;:focus:not(:focus-visible)]:outline-none relative h-12 w-12 overflow-hidden rounded-full bg-neutral-100 opacity-40 shadow-md ring-2 ring-white transition"
               value="t2"
             >
-              <Image src="/coach1.jpg" alt="" fill />
+              <Image src="/test1.webp" alt="" fill />
             </TabsTrigger>
             <TabsTrigger
               className="[&amp;:focus:not(:focus-visible)]:outline-none relative h-12 w-12 overflow-hidden rounded-full bg-neutral-100 opacity-40 shadow-md ring-2 ring-white transition"
               value="t3"
             >
-              <Image src="/coach1.jpg" alt="" fill />
+              <Image src="/anonymous2.jpeg" alt="" fill />
             </TabsTrigger>
           </TabsList>
           <TabsContent value="t1" className="mt-10">
             <figure className="text-center">
               <blockquote className="text-2xl leading-9 text-neutral-900">
                 <p className="before:content-['“'] after:content-['”']">
-                  “Anim sit consequat culpa commodo eu do nisi commodo ut aute
-                  aliqua. Laborum esse duis tempor consectetur officia mollit
-                  fugiat. Exercitation qui elit minim minim quis fugiat ex.”
+                  Lazar helped me reconnect with my passion about learning
+                  Chess. As an adult with childhood experience in Chess, it was
+                  difficult to bridge the gap in decades where I didn’t study.
+                  But he’s given me such great direction and connected me with
+                  resources that have greatly helped my game. He’s definitely
+                  leading me into smarter ways of thinking and giving me
+                  direction to make me a much stronger player.
                 </p>
               </blockquote>
               <figcaption className="mt-8">
                 <span className="block text-base font-medium leading-7 text-neutral-900">
-                  Ben Barbersmith
-                </span>
-                <span className="text-sm text-neutral-600">
-                  <a
-                    href="https://twitter.com/benbarbersmith/status/1527291090889371651"
-                    target="_blank"
-                  >
-                    @benbarbersmith
-                  </a>
+                  Luke A.
                 </span>
               </figcaption>
             </figure>
@@ -57,22 +53,16 @@ const Testimonials = () => {
             <figure className="text-center">
               <blockquote className="text-2xl leading-9 text-neutral-900">
                 <p className="before:content-['“'] after:content-['”']">
-                  “Anim sit consequat culpa commodo eu do nisi commodo ut aute
-                  aliqua. Laborum esse duis tempor consectetur officia mollit
-                  fugiat. Exercitation qui elit minim minim quis fugiat ex.”
+                  Lazar is an absolute professional and a master of the game. He
+                  is able to connect and communicate with my son in a way that
+                  engages his mind and causes him to think. He is thoughtful and
+                  patient and always willing to explain moves or answer any
+                  questions. If you’re serious about chess, Lazar is your coach.
                 </p>
               </blockquote>
               <figcaption className="mt-8">
                 <span className="block text-base font-medium leading-7 text-neutral-900">
-                  Ben Barbersmith
-                </span>
-                <span className="text-sm text-neutral-600">
-                  <a
-                    href="https://twitter.com/benbarbersmith/status/1527291090889371651"
-                    target="_blank"
-                  >
-                    @benbarbersmith
-                  </a>
+                  Jay K.
                 </span>
               </figcaption>
             </figure>
@@ -81,22 +71,17 @@ const Testimonials = () => {
             <figure className="text-center">
               <blockquote className="text-2xl leading-9 text-neutral-900">
                 <p className="before:content-['“'] after:content-['”']">
-                  “Anim sit consequat culpa commodo eu do nisi commodo ut aute
-                  aliqua. Laborum esse duis tempor consectetur officia mollit
-                  fugiat. Exercitation qui elit minim minim quis fugiat ex.”
+                  I was struggling with both my tactical and positional sense of
+                  the game and Lazar’s ability to not only make sense of complex
+                  positions but break them down into simplistic ideas utterly
+                  fascinated me. All in all a 10/10 experience and I recommend
+                  Coach Lazar to anyone who is trying to improve their
+                  understanding of the game.
                 </p>
               </blockquote>
               <figcaption className="mt-8">
                 <span className="block text-base font-medium leading-7 text-neutral-900">
-                  Ben Barbersmith
-                </span>
-                <span className="text-sm text-neutral-600">
-                  <a
-                    href="https://twitter.com/benbarbersmith/status/1527291090889371651"
-                    target="_blank"
-                  >
-                    @benbarbersmith
-                  </a>
+                  John P.
                 </span>
               </figcaption>
             </figure>

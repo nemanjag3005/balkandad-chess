@@ -63,20 +63,18 @@ const Testimonial2 = () => {
             </div>
           </div>
           <blockquote className="mt-10 font-sans text-4xl font-medium tracking-tight text-neutral-900 sm:text-center">
-            <p>
-              “Laborum quis quam. Dolorum et ut quod quia. Voluptas numquam
-              delectus nihil. Aut enim doloremque et ipsam.”
+            <p className="before:content-['“'] after:content-['”']">
+              A good tutor for adults who are intermediate to advanced.
             </p>
           </blockquote>
           <figcaption className="mt-10 flex items-center sm:justify-center">
             <div className="relative h-12 w-12 overflow-hidden rounded-full bg-neutral-200">
-              <Image alt="" fill className="object-cover" src="/coach1.jpg" />
+              <Image alt="" fill className="object-cover" src="/test4.webp" />
             </div>
             <div className="ml-4">
               <div className="text-base font-medium leading-6 tracking-tight text-neutral-900">
-                Tommy Stroman
+                Stephen M.
               </div>
-              <div className="mt-1 text-sm text-neutral-600">Position</div>
             </div>
           </figcaption>
         </figure>
