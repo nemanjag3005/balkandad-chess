@@ -31,21 +31,13 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useCallback, useState } from "react";
 
-import { FaGithub } from "react-icons/fa";
-import { FcGoogle } from "react-icons/fc";
-import { signUp } from "../(auth)/actions";
 import LogoPlain from "~/components/ui/Logos/LogoPlain";
 import { useRouter } from "next/navigation";
-import { type Metadata } from "next/types";
 
 const registerSchema = z.object({
   email: z.string().email(),
   password: z.string().min(6).max(100),
 });
-
-export const metadata: Metadata = {
-  title: `BalkanDad Chess | Checkout`,
-};
 
 export type SignupInput = z.infer<typeof registerSchema>;
 
