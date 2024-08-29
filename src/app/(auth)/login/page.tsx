@@ -19,16 +19,11 @@ import React, { useState } from "react";
 
 import { signIn } from "../actions";
 import LogoPlain from "~/components/ui/Logos/LogoPlain";
-import { type Metadata } from "next/types";
 
 const registerSchema = z.object({
   email: z.string().email(),
   password: z.string().min(6).max(100),
 });
-
-export const metadata: Metadata = {
-  title: `BalkanDad Chess | Login`,
-};
 
 export type LoginInput = z.infer<typeof registerSchema>;
 
